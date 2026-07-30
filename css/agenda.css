@@ -126,3 +126,50 @@
     color:white;
 
 }
+
+.times{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    margin:15px 0;
+
+}
+
+
+.times div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:5px;
+
+    font-size:12px;
+
+    text-align:center;
+
+}
+
+
+.times img{
+
+    width:40px;
+
+    height:40px;
+
+    object-fit:contain;
+
+}
+
+
+.times strong{
+
+    font-size:18px;
+
+}
