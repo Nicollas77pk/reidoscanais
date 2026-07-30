@@ -5,6 +5,7 @@ async function iniciar(){
 
     try{
 
+
         const resposta = await api("/channels");
 
 
@@ -17,29 +18,26 @@ async function iniciar(){
         }
 
 
+
         STORE.canais = resposta.data;
 
 
-        // Primeiro monta os canais
+
+        // Agenda de jogos
+
+        carregarAgenda();
+
+
+
+        // Canais
+
         montarPagina(STORE.canais);
 
 
 
-        // Depois tenta carregar agenda
-        if(typeof carregarAgenda === "function"){
-
-            carregarAgenda();
-
-        }else{
-
-            console.warn("carregarAgenda não encontrada");
-
-        }
-
-
     }catch(erro){
 
-        console.error("Erro:", erro);
+        console.error(erro);
 
     }
 
