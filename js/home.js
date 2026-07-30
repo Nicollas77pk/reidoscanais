@@ -2,59 +2,43 @@ document.addEventListener("DOMContentLoaded", iniciar);
 
 async function iniciar() {
 
-    try {
+    const resposta = await api("/channels");
 
-        const resposta = await api("/channels");
+    if (!resposta || !resposta.success) {
 
-        if (!resposta || !resposta.success) {
+        console.log("Erro ao carregar API");
 
-            console.error("Erro ao carregar canais.");
+        return;
 
-            return;
+    }
+
+    montarPagina(resposta.data);
+
+}
+
+function montarPagina(canais){
+
+    const categorias = {};
+
+    canais.forEach(canal=>{
+
+        if(!categorias[canal.category]){
+
+            categorias[canal.category]=[];
 
         }
 
-        const canais = resposta.data;
+        categorias[canal.category].push(canal);
 
-        console.log(canais);
+    });
 
-        carregarCategorias(canais);
+    const container=document.getElementById("categorias");
 
-    }
+    container.innerHTML="";
 
-    catch (erro) {
+    Object.keys(categorias).forEach(nome=>{
 
-        console.error(erro);
-
-    }
-
-}
-
-function carregarCategorias(canais){
-
-    carregarSecao("listaAbertos", canais.filter(c=>c.category==="Abertos"));
-
-    carregarSecao("listaEsportes", canais.filter(c=>c.category==="Esportes"));
-
-    carregarSecao("listaFilmes", canais.filter(c=>c.category==="Filmes"));
-
-    carregarSecao("listaInfantil", canais.filter(c=>c.category==="Infantil"));
-
-    carregarSecao("destaques", canais.slice(0,12));
-
-}
-
-function carregarSecao(id, lista){
-
-    const container = document.getElementById(id);
-
-    if(!container) return;
-
-    container.innerHTML = "";
-
-    lista.forEach(canal=>{
-
-        container.innerHTML += criarCard(canal);
+        container.innerHTML+=criarCategoria(nome,categorias[nome]);
 
     });
 
