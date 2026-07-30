@@ -191,3 +191,10 @@
     display:none;
 
 }
+.event-card{
+
+    display:block !important;
+
+    height:auto;
+
+}
