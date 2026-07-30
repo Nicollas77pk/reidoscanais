@@ -1,45 +1,85 @@
-container.innerHTML += `
+function criarAgenda(eventos){
 
-<div class="event-card">
-
-
-    <div class="event-image">
-
-        <img src="${evento.poster}">
+    const container = document.getElementById("agendaSlider");
 
 
-        <span class="event-badge">
+    if(!container){
 
-            ⏰ ${evento.start_time.substring(11,16)}
+        console.log("agendaSlider não encontrado");
 
-        </span>
+        return;
 
-
-    </div>
-
+    }
 
 
-    <div class="event-info">
+    container.innerHTML = "";
 
 
-        <h3 class="event-title">
-
-            ${evento.title}
-
-        </h3>
+    eventos
+    .slice(0,10)
+    .forEach(evento => {
 
 
-
-        <p class="event-meta">
-
-            ${evento.competition} · ${evento.start_time.substring(11,16)}
-
-        </p>
+        const hora = evento.start_time 
+        ? evento.start_time.substring(11,16)
+        : "--:--";
 
 
-    </div>
+        container.innerHTML += `
 
 
-</div>
+        <div class="event-card">
 
-`;
+
+            <div class="event-image">
+
+
+                <img 
+                src="${evento.poster || 'assets/sem-imagem.png'}"
+                alt="${evento.title}"
+                >
+
+
+
+                <span class="event-badge">
+
+                    ⏰ Hoje · ${hora}
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="event-info">
+
+
+                <h3 class="event-title">
+
+                    ${evento.title}
+
+                </h3>
+
+
+
+                <p class="event-meta">
+
+                    ${evento.competition} · ${hora}
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+        `;
+
+
+    });
+
+
+}
