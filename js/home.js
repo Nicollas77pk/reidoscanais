@@ -14,9 +14,11 @@ async function iniciar() {
 
     montarPagina(resposta.data);
 
+    iniciarHero(resposta.data);
+
 }
 
-iniciarHero(resposta.data);
+
 
 function montarPagina(canais){
 
