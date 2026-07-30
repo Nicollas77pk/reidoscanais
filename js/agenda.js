@@ -129,7 +129,7 @@ function montarAgenda(eventos){
 
 
     });
-
+iniciarSliderAgenda();
 
 }
 
