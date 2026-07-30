@@ -19,19 +19,13 @@ async function iniciar(){
 
 
 
-        STORE.canais = resposta.data;
+STORE.canais = resposta.data;
 
+carregarAgenda();
 
+montarPagina(STORE.canais);
 
-        // Agenda de jogos
-
-        carregarAgenda();
-
-
-
-        // Canais
-
-        montarPagina(STORE.canais);
+montarCanaisDestaque(STORE.canais);
 
 
 
