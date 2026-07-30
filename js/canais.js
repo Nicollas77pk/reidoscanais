@@ -47,3 +47,74 @@ function montarCanaisDestaque(canais){
     iniciarSliderCanais();
 
 }
+
+function iniciarSliderCanais(){
+
+    const slider =
+    document.getElementById("canaisSlider");
+
+    if(!slider) return;
+
+    const card =
+    slider.querySelector(".canal-card");
+
+    if(!card) return;
+
+    const largura =
+    card.offsetWidth + 16;
+
+    document.getElementById("canaisNext").onclick = ()=>{
+
+        slider.scrollBy({
+
+            left:largura,
+
+            behavior:"smooth"
+
+        });
+
+    };
+
+    document.getElementById("canaisPrev").onclick = ()=>{
+
+        slider.scrollBy({
+
+            left:-largura,
+
+            behavior:"smooth"
+
+        });
+
+    };
+
+    setInterval(()=>{
+
+        if(
+            slider.scrollLeft + slider.clientWidth
+            >=
+            slider.scrollWidth - 20
+        ){
+
+            slider.scrollTo({
+
+                left:0,
+
+                behavior:"smooth"
+
+            });
+
+        }else{
+
+            slider.scrollBy({
+
+                left:largura,
+
+                behavior:"smooth"
+
+            });
+
+        }
+
+    },6000);
+
+}
