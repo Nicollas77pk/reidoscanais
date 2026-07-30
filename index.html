@@ -26,6 +26,55 @@
 
 </head>
 
+<div id="playerModal" class="modal">
+
+    <div class="modal-content">
+
+        <button id="fecharModal" class="fechar">
+            ✕
+        </button>
+
+        <div class="player">
+
+            <iframe
+                id="playerFrame"
+                allowfullscreen
+                frameborder="0"
+                allow="autoplay; encrypted-media; picture-in-picture">
+            </iframe>
+
+        </div>
+
+        <div class="modal-info">
+
+            <img id="modalLogo" src="" alt="">
+
+            <div>
+
+                <h2 id="modalTitulo"></h2>
+
+                <span id="modalCategoria"></span>
+
+            </div>
+
+        </div>
+
+        <div class="programacao">
+
+            <h3>🔴 Agora</h3>
+
+            <p id="programaAtual"></p>
+
+            <h3>⏭ Próximo</h3>
+
+            <p id="proximoPrograma"></p>
+
+        </div>
+
+    </div>
+
+</div>    
+
 <body>
 
     <!-- ================= HEADER ================= -->
