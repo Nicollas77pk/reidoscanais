@@ -1,31 +1,29 @@
-/* ===========================
-   HEADER
-=========================== */
+/*==============================
+HEADER
+==============================*/
 
 .header{
 
     position:fixed;
-
     top:0;
     left:0;
 
     width:100%;
+    height:80px;
 
-    z-index:9999;
+    z-index:999;
 
     backdrop-filter:blur(18px);
 
-    background:rgba(8,9,13,.80);
+    background:rgba(8,9,13,.75);
 
-    border-bottom:1px solid rgba(255,255,255,.05);
-
-    transition:.3s;
+    border-bottom:1px solid rgba(255,255,255,.06);
 
 }
 
 .header .container{
 
-    height:75px;
+    height:100%;
 
     display:flex;
 
@@ -33,13 +31,13 @@
 
     justify-content:space-between;
 
-    gap:30px;
+    gap:40px;
 
 }
 
-/* ===========================
-   LOGO
-=========================== */
+/*==============================
+LOGO
+==============================*/
 
 .logo{
 
@@ -47,33 +45,62 @@
 
     align-items:center;
 
-    gap:12px;
-
-    flex-shrink:0;
+    gap:15px;
 
 }
 
-.logo img{
+.logo-icon{
 
-    height:42px;
+    width:48px;
+    height:48px;
 
-    width:auto;
+    border-radius:14px;
 
-}
+    display:flex;
 
-.logo span{
+    align-items:center;
+
+    justify-content:center;
+
+    background:linear-gradient(135deg,#2d8cff,#1462ff);
 
     font-size:24px;
 
-    font-weight:700;
-
-    color:#fff;
+    box-shadow:0 10px 25px rgba(45,140,255,.35);
 
 }
 
-/* ===========================
-   MENU
-=========================== */
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    line-height:1.1;
+
+}
+
+.logo-text span{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.logo-text strong{
+
+    color:var(--primary);
+
+    font-size:20px;
+
+}
+
+/*==============================
+MENU
+==============================*/
 
 .menu{
 
@@ -81,7 +108,7 @@
 
     align-items:center;
 
-    gap:28px;
+    gap:30px;
 
 }
 
@@ -101,7 +128,7 @@
 
 .menu a:hover{
 
-    color:#fff;
+    color:white;
 
 }
 
@@ -111,12 +138,14 @@
 
     position:absolute;
 
-    bottom:-6px;
     left:0;
+    bottom:-8px;
 
     width:0;
 
     height:2px;
+
+    border-radius:20px;
 
     background:var(--primary);
 
@@ -130,23 +159,25 @@
 
 }
 
-/* ===========================
-   PESQUISA
-=========================== */
+/*==============================
+BUSCA
+==============================*/
 
 .search{
 
-    width:340px;
+    width:350px;
+
+    height:50px;
 
     display:flex;
 
     align-items:center;
 
-    background:var(--card);
+    background:#161922;
 
-    border:1px solid var(--border);
+    border:1px solid #252a3d;
 
-    border-radius:50px;
+    border-radius:40px;
 
     overflow:hidden;
 
@@ -156,13 +187,13 @@
 
     flex:1;
 
-    height:48px;
+    height:100%;
 
     background:none;
 
-    color:#fff;
+    color:white;
 
-    padding:0 18px;
+    padding:0 20px;
 
     font-size:15px;
 
@@ -170,21 +201,22 @@
 
 .search input::placeholder{
 
-    color:#8b93a8;
+    color:#8d95ab;
 
 }
 
 .search button{
 
     width:55px;
-
-    height:48px;
+    height:100%;
 
     background:none;
 
-    color:#fff;
+    color:white;
 
-    font-size:18px;
+    font-size:20px;
+
+    transition:.25s;
 
 }
 
@@ -194,12 +226,14 @@
 
 }
 
-/* ===========================
-   MOBILE
-=========================== */
+/*==============================
+HEADER FIXO
+==============================*/
 
-.menuMobile{
+.header.scrolled{
 
-    display:none;
+    background:#08090d;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.45);
 
 }
