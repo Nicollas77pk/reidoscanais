@@ -20,10 +20,21 @@ async function iniciar(){
         STORE.canais = resposta.data;
 
 
+        // Primeiro monta os canais
         montarPagina(STORE.canais);
 
 
-        carregarAgenda();
+
+        // Depois tenta carregar agenda
+        if(typeof carregarAgenda === "function"){
+
+            carregarAgenda();
+
+        }else{
+
+            console.warn("carregarAgenda não encontrada");
+
+        }
 
 
     }catch(erro){
