@@ -1,1 +1,26 @@
+:root{
 
+    --bg:#08090d;
+    --bg2:#11131a;
+    --card:#171922;
+
+    --primary:#2d8cff;
+    --primary-hover:#4ea2ff;
+
+    --text:#ffffff;
+    --text2:#b8bcc7;
+
+    --border:#242838;
+
+    --success:#17d964;
+    --danger:#ff3b5c;
+
+    --radius:18px;
+
+    --shadow:0 10px 35px rgba(0,0,0,.35);
+
+    --container:1400px;
+
+    --transition:.25s;
+
+}
