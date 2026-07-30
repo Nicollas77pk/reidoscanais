@@ -22,7 +22,13 @@ async function iniciar(){
 
 
         // Monta as categorias e cards
-        montarPagina(STORE.canais);
+       STORE.canais = resposta.data;
+
+
+montarPagina(STORE.canais);
+
+
+iniciarHero(STORE.canais);
 
 
     }catch(erro){
