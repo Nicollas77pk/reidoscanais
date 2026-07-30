@@ -132,3 +132,134 @@ function montarAgenda(eventos){
 
 
 }
+
+function iniciarSliderAgenda(){
+
+    const slider =
+    document.getElementById("agendaSlider");
+
+    if(!slider) return;
+
+    const card =
+    slider.querySelector(".event-card");
+
+    if(!card) return;
+
+    const largura =
+    card.offsetWidth + 16;
+
+
+
+    document
+    .getElementById("agendaNext")
+    .onclick = ()=>{
+
+        slider.scrollBy({
+
+            left:largura,
+
+            behavior:"smooth"
+
+        });
+
+    };
+
+
+
+    document
+    .getElementById("agendaPrev")
+    .onclick = ()=>{
+
+        slider.scrollBy({
+
+            left:-largura,
+
+            behavior:"smooth"
+
+        });
+
+    };
+
+
+
+    let intervalo =
+    setInterval(()=>{
+
+        if(
+            slider.scrollLeft + slider.clientWidth
+            >=
+            slider.scrollWidth - 20
+        ){
+
+            slider.scrollTo({
+
+                left:0,
+
+                behavior:"smooth"
+
+            });
+
+        }
+
+        else{
+
+            slider.scrollBy({
+
+                left:largura,
+
+                behavior:"smooth"
+
+            });
+
+        }
+
+    },6000);
+
+
+
+    slider.addEventListener("mouseenter",()=>{
+
+        clearInterval(intervalo);
+
+    });
+
+
+
+    slider.addEventListener("mouseleave",()=>{
+
+        intervalo =
+        setInterval(()=>{
+
+            if(
+                slider.scrollLeft + slider.clientWidth
+                >=
+                slider.scrollWidth - 20
+            ){
+
+                slider.scrollTo({
+
+                    left:0,
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+            else{
+
+                slider.scrollBy({
+
+                    left:largura,
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        },6000);
+
+    });
+
+}
