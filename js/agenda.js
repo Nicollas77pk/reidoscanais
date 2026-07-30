@@ -1,8 +1,6 @@
 async function carregarAgenda(){
 
-
     try{
-
 
         const resposta = await api("/sports");
 
@@ -19,13 +17,11 @@ async function carregarAgenda(){
         criarAgenda(resposta.data);
 
 
-
     }catch(erro){
 
         console.error("Erro agenda:", erro);
 
     }
-
 
 }
 
@@ -41,7 +37,10 @@ function criarAgenda(eventos){
 
 
 
-    eventos.slice(0,10).forEach(evento=>{
+    eventos
+    .filter(evento => evento.status !== "finished")
+    .slice(0,10)
+    .forEach(evento => {
 
 
         container.innerHTML += `
@@ -51,23 +50,70 @@ function criarAgenda(eventos){
 
             <div class="event-status">
 
-                ${evento.status || "Próximo"}
+                🔴 ${evento.status === "live" ? "AO VIVO" : "PRÓXIMO"}
 
             </div>
 
 
+
             <h3 class="event-title">
 
-                ${evento.name || evento.title}
+                ${evento.title}
 
             </h3>
 
 
-            <p class="event-time">
 
-                ${evento.time || "Horário não informado"}
+            <p class="competition">
+
+                ${evento.competition}
 
             </p>
+
+
+
+            <div class="times">
+
+
+                <div>
+
+                    <img src="${evento.teams.home.logo}">
+
+                    <span>
+                        ${evento.teams.home.name}
+                    </span>
+
+                </div>
+
+
+
+                <strong>
+                    X
+                </strong>
+
+
+
+                <div>
+
+                    <img src="${evento.teams.away.logo}">
+
+                    <span>
+                        ${evento.teams.away.name}
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <p class="event-time">
+
+                ${evento.start_time}
+
+            </p>
+
 
 
             <button class="assistir-evento">
@@ -79,12 +125,10 @@ function criarAgenda(eventos){
 
         </div>
 
-
         `;
 
 
     });
-
 
 
 }
