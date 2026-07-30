@@ -14,9 +14,20 @@ const atual = document.getElementById("programaAtual");
 
 const proximo = document.getElementById("proximoPrograma");
 
+
 function abrirPlayer(canal){
 
+    if(!canal.embeds || canal.embeds.length === 0){
+
+        alert("Player indisponível");
+
+        return;
+
+    }
+
+
     frame.src = canal.embeds[0].embed_url;
+
 
     logo.src = canal.logo_url;
 
@@ -24,19 +35,29 @@ function abrirPlayer(canal){
 
     categoria.textContent = canal.category;
 
+
     atual.textContent =
-        canal.epg?.current?.title || "-";
+        canal.epg?.current?.title || 
+        "Sem programação";
+
 
     proximo.textContent =
-        canal.epg?.next?.title || "-";
+        canal.epg?.next?.title || 
+        "Sem informação";
+
 
     modal.classList.add("ativo");
 
     document.body.style.overflow="hidden";
 
+
 }
 
-fechar.onclick=()=>{
+
+fechar.onclick = fecharPlayer;
+
+
+function fecharPlayer(){
 
     modal.classList.remove("ativo");
 
@@ -44,30 +65,45 @@ fechar.onclick=()=>{
 
     document.body.style.overflow="auto";
 
-};
+}
 
-modal.onclick=(e)=>{
 
-    if(e.target===modal){
 
-        fechar.click();
+modal.onclick=function(e){
+
+    if(e.target === modal){
+
+        fecharPlayer();
 
     }
 
 };
 
-document.addEventListener("click", function(e){
+
+
+document.addEventListener("click",function(e){
+
 
     const card = e.target.closest(".card");
 
+
     if(!card) return;
+
+
 
     const id = card.dataset.id;
 
-    const canal = STORE.canais.find(c => c.id === id);
 
-    if(!canal) return;
 
-    abrirPlayer(canal);
+    const canal = STORE.canais.find(c=>c.id===id);
+
+
+
+    if(canal){
+
+        abrirPlayer(canal);
+
+    }
+
 
 });
