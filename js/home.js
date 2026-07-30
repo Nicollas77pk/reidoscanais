@@ -17,14 +17,13 @@ async function iniciar(){
         }
 
 
-        // Guarda todos os canais na memória
         STORE.canais = resposta.data;
 
 
-montarPagina(STORE.canais);
+        montarPagina(STORE.canais);
 
 
-carregarAgenda();
+        carregarAgenda();
 
 
     }catch(erro){
