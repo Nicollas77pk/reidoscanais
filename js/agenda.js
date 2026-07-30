@@ -1,134 +1,45 @@
-async function carregarAgenda(){
+container.innerHTML += `
 
-    try{
+<div class="event-card">
 
-        const resposta = await api("/sports");
 
+    <div class="event-image">
 
-        if(!resposta || !resposta.success){
+        <img src="${evento.poster}">
 
-            console.log("Erro ao carregar agenda");
 
-            return;
+        <span class="event-badge">
 
-        }
+            ⏰ ${evento.start_time.substring(11,16)}
 
+        </span>
 
-        criarAgenda(resposta.data);
 
+    </div>
 
-    }catch(erro){
 
-        console.error("Erro agenda:", erro);
 
-    }
+    <div class="event-info">
 
-}
 
+        <h3 class="event-title">
 
+            ${evento.title}
 
-function criarAgenda(eventos){
+        </h3>
 
 
-    const container = document.getElementById("agendaSlider");
 
+        <p class="event-meta">
 
-    container.innerHTML = "";
+            ${evento.competition} · ${evento.start_time.substring(11,16)}
 
+        </p>
 
 
-    eventos
-    .filter(evento => evento.status !== "finished")
-    .slice(0,10)
-    .forEach(evento => {
+    </div>
 
 
-        container.innerHTML += `
+</div>
 
-        <div class="event-card">
-
-
-            <div class="event-status">
-
-                🔴 ${evento.status === "live" ? "AO VIVO" : "PRÓXIMO"}
-
-            </div>
-
-
-
-            <h3 class="event-title">
-
-                ${evento.title}
-
-            </h3>
-
-
-
-            <p class="competition">
-
-                ${evento.competition}
-
-            </p>
-
-
-
-            <div class="times">
-
-
-                <div>
-
-                    <img src="${evento.teams.home.logo}">
-
-                    <span>
-                        ${evento.teams.home.name}
-                    </span>
-
-                </div>
-
-
-
-                <strong>
-                    X
-                </strong>
-
-
-
-                <div>
-
-                    <img src="${evento.teams.away.logo}">
-
-                    <span>
-                        ${evento.teams.away.name}
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
-
-            <p class="event-time">
-
-                ${evento.start_time}
-
-            </p>
-
-
-
-            <button class="assistir-evento">
-
-                ▶ Assistir
-
-            </button>
-
-
-        </div>
-
-        `;
-
-
-    });
-
-
-}
+`;
