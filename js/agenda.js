@@ -1,28 +1,77 @@
-function criarAgenda(eventos){
+async function carregarAgenda(){
 
-    const container = document.getElementById("agendaSlider");
+
+    try{
+
+
+        const resposta = await api("/sports");
+
+
+
+        if(!resposta || !resposta.success){
+
+            console.error("Erro agenda");
+
+            return;
+
+        }
+
+
+
+        montarAgenda(resposta.data);
+
+
+
+    }catch(erro){
+
+
+        console.error(
+            "Erro agenda:",
+            erro
+        );
+
+
+    }
+
+
+}
+
+
+
+
+function montarAgenda(eventos){
+
+
+    const container =
+    document.getElementById("agendaSlider");
+
 
 
     if(!container){
-
-        console.log("agendaSlider não encontrado");
 
         return;
 
     }
 
 
-    container.innerHTML = "";
+
+    container.innerHTML="";
+
 
 
     eventos
+    .filter(e => e.status !== "finished")
     .slice(0,10)
-    .forEach(evento => {
+    .forEach(evento=>{
 
 
-        const hora = evento.start_time 
-        ? evento.start_time.substring(11,16)
-        : "--:--";
+        const hora =
+        evento.start_time
+        ?
+        evento.start_time.substring(11,16)
+        :
+        "--:--";
+
 
 
         container.innerHTML += `
@@ -35,7 +84,7 @@ function criarAgenda(eventos){
 
 
                 <img 
-                src="${evento.poster || 'assets/sem-imagem.png'}"
+                src="${evento.poster}"
                 alt="${evento.title}"
                 >
 
