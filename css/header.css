@@ -1,1 +1,205 @@
+/* ===========================
+   HEADER
+=========================== */
 
+.header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:9999;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(8,9,13,.80);
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    transition:.3s;
+
+}
+
+.header .container{
+
+    height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+
+}
+
+.logo img{
+
+    height:42px;
+
+    width:auto;
+
+}
+
+.logo span{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#fff;
+
+}
+
+/* ===========================
+   MENU
+=========================== */
+
+.menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+.menu a{
+
+    color:var(--text2);
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+    position:relative;
+
+}
+
+.menu a:hover{
+
+    color:#fff;
+
+}
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-6px;
+    left:0;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--primary);
+
+    transition:.25s;
+
+}
+
+.menu a:hover::after{
+
+    width:100%;
+
+}
+
+/* ===========================
+   PESQUISA
+=========================== */
+
+.search{
+
+    width:340px;
+
+    display:flex;
+
+    align-items:center;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+.search input{
+
+    flex:1;
+
+    height:48px;
+
+    background:none;
+
+    color:#fff;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+}
+
+.search input::placeholder{
+
+    color:#8b93a8;
+
+}
+
+.search button{
+
+    width:55px;
+
+    height:48px;
+
+    background:none;
+
+    color:#fff;
+
+    font-size:18px;
+
+}
+
+.search button:hover{
+
+    background:var(--primary);
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+.menuMobile{
+
+    display:none;
+
+}
