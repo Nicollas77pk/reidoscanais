@@ -2,14 +2,13 @@ function criarCard(canal){
 
     return `
 
-    <div
-        class="card"
-        onclick="abrirPlayer(${JSON.stringify(canal).replace(/"/g,'&quot;')})">
+    <div class="card" data-id="${canal.id}">
 
         <div class="card-logo">
 
             <img
                 src="${canal.logo_url}"
+                alt="${canal.name}"
                 loading="lazy">
 
         </div>
@@ -20,9 +19,15 @@ function criarCard(canal){
 
             <span class="status">
 
-                🔴 ${canal.epg.current.title}
+                🔴 AO VIVO
 
             </span>
+
+            <p class="programa">
+
+                ${canal.epg?.current?.title || "Programação indisponível"}
+
+            </p>
 
             <button class="assistir">
 
