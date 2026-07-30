@@ -1,6 +1,6 @@
 .agenda-section{
 
-    padding:30px 0;
+    padding:35px 0;
 
 }
 
@@ -8,10 +8,12 @@
 .section-top{
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
-    margin-bottom:18px;
+    margin-bottom:20px;
 
 }
 
@@ -19,7 +21,8 @@
 .section-top h2{
 
     font-size:24px;
-    color:#111;
+
+    color:var(--text);
 
 }
 
@@ -27,9 +30,9 @@
 
 .ver-todos{
 
-    color:#0066ff;
+    color:var(--primary);
+
     font-weight:600;
-    text-decoration:none;
 
 }
 
@@ -58,21 +61,23 @@
 
 
 
+/* CARD */
+
 .event-card{
 
-    flex:0 0 260px;
+    flex:0 0 270px;
 
     background:white;
+
+    border:1px solid var(--border);
 
     border-radius:14px;
 
     overflow:hidden;
 
-    border:1px solid #eee;
+    cursor:pointer;
 
     transition:.3s;
-
-    cursor:pointer;
 
 }
 
@@ -82,11 +87,13 @@
 
     transform:translateY(-5px);
 
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    box-shadow:var(--shadow);
 
 }
 
 
+
+/* IMAGEM */
 
 .event-image{
 
@@ -101,7 +108,6 @@
 }
 
 
-
 .event-image img{
 
     width:100%;
@@ -109,16 +115,6 @@
     height:100%;
 
     object-fit:cover;
-
-    transition:.3s;
-
-}
-
-
-
-.event-card:hover img{
-
-    transform:scale(1.05);
 
 }
 
@@ -134,19 +130,21 @@
 
     background:rgba(0,0,0,.75);
 
-    color:white;
+    color:#fff;
 
-    padding:5px 10px;
+    padding:6px 10px;
 
     border-radius:20px;
 
-    font-size:11px;
+    font-size:12px;
 
     font-weight:bold;
 
 }
 
 
+
+/* TEXTO */
 
 .event-info{
 
@@ -155,14 +153,13 @@
 }
 
 
-
 .event-title{
 
     font-size:16px;
 
     font-weight:700;
 
-    color:#111;
+    color:var(--text);
 
     white-space:nowrap;
 
@@ -173,28 +170,12 @@
 }
 
 
-
 .event-meta{
 
     margin-top:6px;
 
-    font-size:12px;
+    color:var(--text-soft);
 
-    color:#777;
-
-}
-
-
-
-.assistir-evento{
-
-    display:none;
-
-}
-.event-card{
-
-    display:block !important;
-
-    height:auto;
+    font-size:13px;
 
 }
