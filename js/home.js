@@ -21,10 +21,6 @@ async function iniciar(){
         STORE.canais = resposta.data;
 
 
-        // Monta as categorias e cards
-       STORE.canais = resposta.data;
-
-
 montarPagina(STORE.canais);
 
 
