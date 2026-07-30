@@ -1,128 +1,90 @@
-.agenda-section{
-
-    padding:30px 0;
-
-}
+async function carregarAgenda(){
 
 
-.section-top{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:20px;
-
-}
+    try{
 
 
-.section-top h2{
-
-    font-size:24px;
-
-    color:#222;
-
-}
+        const resposta = await api("/sports");
 
 
-.ver-todos{
+        if(!resposta || !resposta.success){
 
-    color:#e50914;
+            console.log("Erro ao carregar agenda");
 
-    text-decoration:none;
+            return;
 
-    font-weight:600;
+        }
+
+
+        criarAgenda(resposta.data);
+
+
+
+    }catch(erro){
+
+        console.error("Erro agenda:", erro);
+
+    }
+
 
 }
 
 
 
-.agenda-slider{
+function criarAgenda(eventos){
 
-    display:flex;
 
-    gap:15px;
+    const container = document.getElementById("agendaSlider");
 
-    overflow:hidden;
 
-}
+    container.innerHTML = "";
 
 
 
-.event-card{
-
-    min-width:280px;
-
-    background:white;
-
-    border-radius:12px;
-
-    padding:18px;
-
-    border:1px solid #eee;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-}
+    eventos.slice(0,10).forEach(evento=>{
 
 
-.event-status{
+        container.innerHTML += `
 
-    color:#e50914;
-
-    font-size:13px;
-
-    font-weight:bold;
-
-}
+        <div class="event-card">
 
 
-.event-title{
+            <div class="event-status">
 
-    margin-top:10px;
+                ${evento.status || "Próximo"}
 
-    font-size:18px;
-
-    color:#222;
-
-}
+            </div>
 
 
-.event-time{
+            <h3 class="event-title">
 
-    margin-top:8px;
+                ${evento.name || evento.title}
 
-    color:#777;
-
-}
+            </h3>
 
 
+            <p class="event-time">
 
-.slider-buttons{
+                ${evento.time || "Horário não informado"}
 
-    display:flex;
-
-    gap:8px;
-
-}
+            </p>
 
 
-.slider-buttons button{
+            <button class="assistir-evento">
 
-    width:35px;
+                ▶ Assistir
 
-    height:35px;
+            </button>
 
-    border:none;
 
-    border-radius:50%;
+        </div>
 
-    cursor:pointer;
 
-    background:#111;
+        `;
 
-    color:white;
+
+    });
+
+
 
 }
