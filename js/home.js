@@ -28,7 +28,7 @@ async function iniciar(){
 montarPagina(STORE.canais);
 
 
-iniciarHero(STORE.canais);
+carregarAgenda();
 
 
     }catch(erro){
