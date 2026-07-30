@@ -1,1 +1,187 @@
+/* RESET */
 
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+/* CONTAINER */
+
+.container{
+
+    width:95%;
+    max-width:var(--container);
+
+    margin:auto;
+
+}
+
+/* LINKS */
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+/* IMAGENS */
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+/* BOTÕES */
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    outline:none;
+
+    transition:var(--transition);
+
+}
+
+/* INPUT */
+
+input{
+
+    border:none;
+
+    outline:none;
+
+}
+
+/* SCROLL */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2d8cff;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#4ea2ff;
+
+}
+
+/* MAIN */
+
+main{
+
+    width:95%;
+    max-width:var(--container);
+
+    margin:auto;
+
+    padding:60px 0;
+
+}
+
+/* SEÇÕES */
+
+.categoria{
+
+    margin-bottom:60px;
+
+}
+
+/* TÍTULO */
+
+.titulo{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.titulo h2{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.titulo a{
+
+    color:var(--primary);
+
+    font-size:15px;
+
+}
+
+/* CARDS */
+
+.cards{
+
+    display:flex;
+
+    gap:18px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    padding-bottom:10px;
+
+}
+
+.cards::-webkit-scrollbar{
+
+    display:none;
+
+}
