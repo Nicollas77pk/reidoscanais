@@ -55,3 +55,19 @@ modal.onclick=(e)=>{
     }
 
 };
+
+document.addEventListener("click", function(e){
+
+    const card = e.target.closest(".card");
+
+    if(!card) return;
+
+    const id = card.dataset.id;
+
+    const canal = STORE.canais.find(c => c.id === id);
+
+    if(!canal) return;
+
+    abrirPlayer(canal);
+
+});
