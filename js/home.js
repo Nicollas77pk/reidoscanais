@@ -16,6 +16,8 @@ async function iniciar() {
 
 }
 
+iniciarHero(resposta.data);
+
 function montarPagina(canais){
 
     const categorias = {};
