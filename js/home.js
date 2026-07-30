@@ -1,49 +1,34 @@
 document.addEventListener("DOMContentLoaded", iniciar);
 
-async function iniciar() {
 
-    const resposta = await api("/channels");
+async function iniciar(){
 
-    if (!resposta || !resposta.success) {
+    try{
 
-        console.log("Erro ao carregar API");
-
-        return;
-
-    }
-
-    montarPagina(resposta.data);
-
-    iniciarHero(resposta.data);
-
-}
+        const resposta = await api("/channels");
 
 
+        if(!resposta || !resposta.success){
 
-function montarPagina(canais){
+            console.error("Erro ao carregar canais");
 
-    const categorias = {};
-
-    canais.forEach(canal=>{
-
-        if(!categorias[canal.category]){
-
-            categorias[canal.category]=[];
+            return;
 
         }
 
-        categorias[canal.category].push(canal);
 
-    });
+        // Guarda todos os canais na memória
+        STORE.canais = resposta.data;
 
-    const container=document.getElementById("categorias");
 
-    container.innerHTML="";
+        // Monta as categorias e cards
+        montarPagina(STORE.canais);
 
-    Object.keys(categorias).forEach(nome=>{
 
-        container.innerHTML+=criarCategoria(nome,categorias[nome]);
+    }catch(erro){
 
-    });
+        console.error("Erro:", erro);
+
+    }
 
 }
