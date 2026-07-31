@@ -3,7 +3,7 @@ function montarPagina(canais){
     const categorias = {};
 
 
-    canais.forEach(canal => {
+    canais.forEach(canal=>{
 
 
         if(!categorias[canal.category]){
@@ -20,14 +20,15 @@ function montarPagina(canais){
 
 
 
-    const container = document.getElementById("categorias");
+    const container =
+    document.getElementById("categorias");
 
 
-    container.innerHTML = "";
+    container.innerHTML="";
 
 
 
-    Object.keys(categorias).forEach(nome => {
+    Object.keys(categorias).forEach(nome=>{
 
 
         container.innerHTML += criarCategoria(
