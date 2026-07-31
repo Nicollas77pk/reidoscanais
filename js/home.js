@@ -1,13 +1,11 @@
 document.addEventListener("DOMContentLoaded", iniciar);
 
-
 async function iniciar(){
 
     try{
 
-
+        // Carrega todos os canais
         const resposta = await api("/channels");
-
 
         if(!resposta || !resposta.success){
 
@@ -17,22 +15,27 @@ async function iniciar(){
 
         }
 
+        STORE.canais = resposta.data;
 
+        // Agenda de esportes
+        carregarAgenda();
 
-STORE.canais = resposta.data;
+        // Seções da Home
+        montarCanaisDestaque(STORE.canais);
 
-carregarAgenda();
+        montarCanaisAbertos(STORE.canais);
 
-montarCanaisDestaque(STORE.canais);
+        montarEsportes(STORE.canais);
 
-montarCategorias(STORE.canais);
-        
-montarCanaisAbertos(STORE.canais);
+        montarNoticias(STORE.canais);
 
+        montarDocumentarios(STORE.canais);
+
+        montarInfantil(STORE.canais);
 
     }catch(erro){
 
-        console.error(erro);
+        console.error("Erro:", erro);
 
     }
 
