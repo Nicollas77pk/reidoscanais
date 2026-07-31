@@ -1,53 +1,53 @@
 function montarCanaisAbertos(canais){
 
-    const slider = document.getElementById("abertosSlider");
+    const container =
+    document.getElementById("abertosSlider");
 
-    if(!slider) return;
+    if(!container) return;
 
-    slider.innerHTML = "";
+    container.innerHTML = "";
 
     canais
-    .filter(canal => canal.category === "Abertos")
+    .slice(0,20)
     .forEach(canal=>{
 
-       slider.innerHTML += `
+        container.innerHTML += `
 
-<div class="aberto-card"
-    onclick="abrirModal('${canal.id}')">
+        <div class="aberto-card"
+            onclick="abrirModal('${canal.id}')">
 
-    <div class="aberto-logo">
+            <div class="aberto-logo">
 
-        <img
-            src="${canal.logo_url}"
-            alt="${canal.name}"
-            loading="lazy">
+                <img
+                    src="${canal.logo_url}"
+                    alt="${canal.name}"
+                    loading="lazy">
 
-    </div>
+            </div>
 
-    <div class="aberto-info">
+            <div class="aberto-info">
 
-        <h3>${canal.name}</h3>
+                <h3>${canal.name}</h3>
 
-        <p>
+                <p>
 
-            <strong>Agora:</strong><br>
+                    <strong>Agora:</strong><br>
 
-            ${canal.epg?.current?.title || "Programação indisponível"}
+                    ${canal.epg?.current?.title || "Programação indisponível"}
 
-        </p>
+                </p>
 
-    </div>
+            </div>
 
-</div>
+        </div>
 
-`;
+        `;
+
     });
 
     iniciarSliderAbertos();
 
 }
-
-
 
 function iniciarSliderAbertos(){
 
@@ -57,18 +57,20 @@ function iniciarSliderAbertos(){
     if(!slider) return;
 
     const card =
-    slider.querySelector(".canal-card");
+    slider.querySelector(".aberto-card");
 
     if(!card) return;
 
     const largura =
     card.offsetWidth + 16;
 
-    document.getElementById("abertosNext").onclick = ()=>{
+    document
+    .getElementById("abertosNext")
+    .onclick = ()=>{
 
         slider.scrollBy({
 
-            left:largura,
+            left: largura,
 
             behavior:"smooth"
 
@@ -76,11 +78,13 @@ function iniciarSliderAbertos(){
 
     };
 
-    document.getElementById("abertosPrev").onclick = ()=>{
+    document
+    .getElementById("abertosPrev")
+    .onclick = ()=>{
 
         slider.scrollBy({
 
-            left:-largura,
+            left: -largura,
 
             behavior:"smooth"
 
@@ -88,12 +92,14 @@ function iniciarSliderAbertos(){
 
     };
 
+    let intervalo =
     setInterval(()=>{
 
         if(
-            slider.scrollLeft + slider.clientWidth
-            >=
+
+            slider.scrollLeft + slider.clientWidth >=
             slider.scrollWidth - 20
+
         ){
 
             slider.scrollTo({
@@ -117,5 +123,47 @@ function iniciarSliderAbertos(){
         }
 
     },6000);
+
+    slider.addEventListener("mouseenter",()=>{
+
+        clearInterval(intervalo);
+
+    });
+
+    slider.addEventListener("mouseleave",()=>{
+
+        intervalo =
+        setInterval(()=>{
+
+            if(
+
+                slider.scrollLeft + slider.clientWidth >=
+                slider.scrollWidth - 20
+
+            ){
+
+                slider.scrollTo({
+
+                    left:0,
+
+                    behavior:"smooth"
+
+                });
+
+            }else{
+
+                slider.scrollBy({
+
+                    left:largura,
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        },6000);
+
+    });
 
 }
