@@ -108,13 +108,17 @@ placeholder="Pesquisar canais..."
 
 <main>
 
-<section class="categoria-section">
+
+<!-- ================= AGENDA ================= -->
+
+<section class="categoria-section agenda-section">
 
     <div class="container">
 
         <div class="section-top">
 
             <h2>
+
                 <svg xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -126,16 +130,88 @@ placeholder="Pesquisar canais..."
                 stroke-linejoin="round"
                 class="section-icon">
 
-                <path d="m17 2-5 5-5-5"></path>
-                <rect width="20" height="15" x="2" y="7" rx="2"></rect>
+                    <path d="m17 2-5 5-5-5"></path>
+                    <rect width="20" height="15" x="2" y="7" rx="2"></rect>
 
                 </svg>
 
-                Canais
+                Agenda Ao Vivo
+
             </h2>
 
 
             <div class="section-actions">
+
+                <button id="agendaPrev" class="slider-btn">
+                    ‹
+                </button>
+
+
+                <button id="agendaNext" class="slider-btn">
+                    ›
+                </button>
+
+
+                <a href="#" class="ver-todos">
+                    Ver todos →
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div id="agendaSlider" class="agenda-slider"></div>
+
+
+    </div>
+
+</section>
+
+
+
+
+<!-- ================= CANAIS ================= -->
+
+
+<section class="categoria-section">
+
+    <div class="container">
+
+        <div class="section-top">
+
+            <h2>
+
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="section-icon">
+
+                    <path d="m17 2-5 5-5-5"></path>
+
+                    <rect 
+                    width="20" 
+                    height="15" 
+                    x="2" 
+                    y="7" 
+                    rx="2"></rect>
+
+                </svg>
+
+                Canais
+
+            </h2>
+
+
+            <div class="section-actions">
+
 
                 <button id="categoriaPrev" class="slider-btn">
                     ‹
@@ -151,6 +227,7 @@ placeholder="Pesquisar canais..."
                     Ver todos →
                 </a>
 
+
             </div>
 
 
@@ -165,10 +242,15 @@ placeholder="Pesquisar canais..."
 
 </section>
 
- 
-    <!-- Categorias -->
 
-    <div id="categorias"></div>
+
+
+<!-- ================= CATEGORIAS AUTOMÁTICAS ================= -->
+
+
+<div id="categorias"></div>
+
+
 
 </main>
 
