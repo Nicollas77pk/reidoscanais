@@ -26,6 +26,8 @@ carregarAgenda();
 montarCanaisDestaque(STORE.canais);
 
 montarCategorias(STORE.canais);
+        
+montarCanaisAbertos(STORE.canais);
 
 
     }catch(erro){
