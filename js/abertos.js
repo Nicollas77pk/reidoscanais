@@ -10,38 +10,37 @@ function montarCanaisAbertos(canais){
     .filter(canal => canal.category === "Abertos")
     .forEach(canal=>{
 
-        slider.innerHTML += `
+       slider.innerHTML += `
 
-        <div class="canal-card"
-            onclick="abrirModal('${canal.id}')">
+<div class="aberto-card"
+    onclick="abrirModal('${canal.id}')">
 
-            <div class="canal-logo">
+    <div class="aberto-logo">
 
-                <img
-                    src="${canal.logo_url}"
-                    alt="${canal.name}"
-                    loading="lazy">
+        <img
+            src="${canal.logo_url}"
+            alt="${canal.name}"
+            loading="lazy">
 
-            </div>
+    </div>
 
-            <div class="canal-info">
+    <div class="aberto-info">
 
-                <h3>${canal.name}</h3>
+        <h3>${canal.name}</h3>
 
-                <p>
+        <p>
 
-                    <strong>Agora:</strong><br>
+            <strong>Agora:</strong><br>
 
-                    ${canal.epg?.current?.title || "Programação indisponível"}
+            ${canal.epg?.current?.title || "Programação indisponível"}
 
-                </p>
+        </p>
 
-            </div>
+    </div>
 
-        </div>
+</div>
 
-        `;
-
+`;
     });
 
     iniciarSliderAbertos();
