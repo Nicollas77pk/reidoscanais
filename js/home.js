@@ -23,10 +23,9 @@ STORE.canais = resposta.data;
 
 carregarAgenda();
 
-montarPagina(STORE.canais);
+// montarPagina(STORE.canais);
 
 montarCanaisDestaque(STORE.canais);
-
 
 
     }catch(erro){
