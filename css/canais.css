@@ -32,19 +32,11 @@
 
 .canal-card{
 
-    flex:0 0 185px;
+    min-width:220px;
 
-    background:#fff;
+    max-width:220px;
 
-    border:1px solid #e5e7eb;
-
-    border-radius:16px;
-
-    overflow:hidden;
-
-    cursor:pointer;
-
-    transition:.30s;
+    flex-shrink:0;
 
 }
 
