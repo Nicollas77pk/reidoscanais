@@ -1,18 +1,33 @@
 document.addEventListener("DOMContentLoaded", iniciar);
 
 
+
 async function iniciar(){
+
 
     try{
 
 
-        // Carrega agenda esportiva
+        const resposta = await api("/channels");
+
+
+        if(!resposta || !resposta.success){
+
+            console.error("Erro canais");
+
+            return;
+
+        }
+
+
+
+        STORE.canais = resposta.data;
+
+
 
         carregarAgenda();
 
 
-
-        // Carrega categorias automaticamente
 
         carregarCategorias();
 
@@ -20,13 +35,9 @@ async function iniciar(){
 
     }catch(erro){
 
-
-        console.error(
-            "Erro:",
-            erro
-        );
-
+        console.error(erro);
 
     }
+
 
 }
