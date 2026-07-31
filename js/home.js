@@ -5,7 +5,9 @@ async function iniciar(){
 
     try{
 
-        const resposta = await api("/channels");
+
+        const resposta =
+        await api("/channels");
 
 
         if(!resposta || !resposta.success){
@@ -23,13 +25,13 @@ async function iniciar(){
         carregarAgenda();
 
 
-        montarCategorias(STORE.canais);
+        montarPagina(STORE.canais);
 
 
 
     }catch(erro){
 
-        console.error("Erro:", erro);
+        console.error(erro);
 
     }
 
