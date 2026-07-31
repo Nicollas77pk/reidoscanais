@@ -124,3 +124,96 @@ function montarCategorias(canais) {
     });
 
 }
+
+function iniciarSliderCategoria(id){
+
+    const slider = document.getElementById(id);
+
+    if(!slider) return;
+
+
+    const card = slider.querySelector(".canal-card");
+
+    if(!card) return;
+
+
+    const largura = card.offsetWidth + 16;
+
+
+
+    const botoes = slider
+    .parentElement
+    .querySelectorAll(".slider-btn");
+
+
+    if(botoes[0]){
+
+        botoes[0].onclick = ()=>{
+
+            slider.scrollBy({
+
+                left:-largura,
+
+                behavior:"smooth"
+
+            });
+
+        };
+
+    }
+
+
+    if(botoes[1]){
+
+        botoes[1].onclick = ()=>{
+
+            slider.scrollBy({
+
+                left:largura,
+
+                behavior:"smooth"
+
+            });
+
+        };
+
+    }
+
+
+    setInterval(()=>{
+
+
+        if(
+            slider.scrollLeft + slider.clientWidth
+            >=
+            slider.scrollWidth - 20
+        ){
+
+            slider.scrollTo({
+
+                left:0,
+
+                behavior:"smooth"
+
+            });
+
+
+        }else{
+
+
+            slider.scrollBy({
+
+                left:largura,
+
+                behavior:"smooth"
+
+            });
+
+
+        }
+
+
+    },6000);
+
+
+}
