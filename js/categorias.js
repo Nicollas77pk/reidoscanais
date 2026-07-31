@@ -199,3 +199,126 @@ onclick="abrirModal('${canal.id}')">
     iniciarSliderCategoria(id);
 
 }
+
+function iniciarSliderCategoria(id){
+
+    const slider =
+    document.getElementById(id + "Slider");
+
+    if(!slider) return;
+
+    const card =
+    slider.querySelector(".canal-card");
+
+    if(!card) return;
+
+    const largura =
+    card.offsetWidth + 16;
+
+    const btnPrev =
+    document.getElementById(id + "Prev");
+
+    const btnNext =
+    document.getElementById(id + "Next");
+
+    if(btnNext){
+
+        btnNext.onclick = ()=>{
+
+            slider.scrollBy({
+
+                left: largura,
+
+                behavior: "smooth"
+
+            });
+
+        };
+
+    }
+
+    if(btnPrev){
+
+        btnPrev.onclick = ()=>{
+
+            slider.scrollBy({
+
+                left: -largura,
+
+                behavior: "smooth"
+
+            });
+
+        };
+
+    }
+
+    let intervalo = setInterval(()=>{
+
+        if(
+            slider.scrollLeft + slider.clientWidth >=
+            slider.scrollWidth - 20
+        ){
+
+            slider.scrollTo({
+
+                left: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }else{
+
+            slider.scrollBy({
+
+                left: largura,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    },6000);
+
+    slider.addEventListener("mouseenter",()=>{
+
+        clearInterval(intervalo);
+
+    });
+
+    slider.addEventListener("mouseleave",()=>{
+
+        intervalo = setInterval(()=>{
+
+            if(
+                slider.scrollLeft + slider.clientWidth >=
+                slider.scrollWidth - 20
+            ){
+
+                slider.scrollTo({
+
+                    left:0,
+
+                    behavior:"smooth"
+
+                });
+
+            }else{
+
+                slider.scrollBy({
+
+                    left:largura,
+
+                    behavior:"smooth"
+
+                });
+
+            }
+
+        },6000);
+
+    });
+
+}
