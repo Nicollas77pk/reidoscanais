@@ -1,219 +1,148 @@
-function montarCategorias(canais) {
+async function carregarCategorias(){
 
-    const container = document.getElementById("categorias");
+    try{
 
-    if (!container) return;
+        const resposta = await api("/channels/categories");
 
-    container.innerHTML = "";
+        if(!resposta || !resposta.success){
 
-    // Agrupa canais por categoria
-    const grupos = {};
+            console.error("Erro ao carregar categorias");
 
-    canais.forEach(canal => {
-
-        const categoria = canal.category || "Outros";
-
-        if (!grupos[categoria]) {
-
-            grupos[categoria] = [];
+            return;
 
         }
 
-        grupos[categoria].push(canal);
+        for(const categoria of resposta.data){
 
-    });
+            await carregarCategoria(categoria);
 
-    // Cria uma seção para cada categoria
-    Object.keys(grupos).forEach((categoria, index) => {
+        }
 
-        const id = "sliderCategoria" + index;
+    }catch(erro){
 
-        container.innerHTML += `
+        console.error("Erro:", erro);
 
-        <section class="categoria-section">
-
-            <div class="container">
-
-                <div class="section-top">
-
-                    <h2>${categoria}</h2>
-
-                    <div class="section-actions">
-
-                        <button class="slider-btn" onclick="moverSlider('${id}',-1)">
-                            ‹
-                        </button>
-
-                        <button class="slider-btn" onclick="moverSlider('${id}',1)">
-                            ›
-                        </button>
-
-                        <a href="#" class="ver-todos">
-                            Ver todos →
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="categoria-slider" id="${id}">
-
-                </div>
-
-            </div>
-
-        </section>
-
-        `;
-
-        const slider = document.getElementById(id);
-
-        grupos[categoria].forEach(canal => {
-
-            slider.innerHTML += `
-
-            <div class="canal-card" onclick="abrirModal('${canal.id}')">
-
-                <div class="canal-logo">
-
-                    <img
-                        src="${canal.logo_url}"
-                        alt="${canal.name}"
-                        loading="lazy">
-
-                </div>
-
-                <div class="canal-info">
-
-                    <h3>${canal.name}</h3>
-
-                    <p>
-
-                        <strong>Agora:</strong><br>
-
-                        ${canal.epg?.current?.title || "Programação indisponível"}
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            `;
-
-        });
-
-    });
-
-}function moverSlider(id, direcao) {
-
-    const slider = document.getElementById(id);
-
-    if (!slider) return;
-
-    const card = slider.querySelector(".canal-card");
-
-    if (!card) return;
-
-    slider.scrollBy({
-
-        left: (card.offsetWidth + 16) * direcao,
-
-        behavior: "smooth"
-
-    });
+    }
 
 }
 
-function iniciarSliderCategoria(id){
-
-    const slider = document.getElementById(id);
-
-    if(!slider) return;
 
 
-    const card = slider.querySelector(".canal-card");
+async function carregarCategoria(categoria){
 
-    if(!card) return;
+    try{
 
+        const resposta =
+        await api(
+            `/channels?category=${encodeURIComponent(categoria)}`
+        );
 
-    const largura = card.offsetWidth + 16;
+        if(!resposta.success) return;
 
+        criarSecaoCategoria(
+            categoria,
+            resposta.data
+        );
 
+    }catch(erro){
 
-    const botoes = slider
-    .parentElement
-    .querySelectorAll(".slider-btn");
-
-
-    if(botoes[0]){
-
-        botoes[0].onclick = ()=>{
-
-            slider.scrollBy({
-
-                left:-largura,
-
-                behavior:"smooth"
-
-            });
-
-        };
+        console.error(erro);
 
     }
 
+}
+function criarSecaoCategoria(nome,canais){
 
-    if(botoes[1]){
+    const container =
+    document.getElementById("categorias");
 
-        botoes[1].onclick = ()=>{
+    if(!container) return;
 
-            slider.scrollBy({
+    const id =
+    nome
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/\s+/g,"");
 
-                left:largura,
+    container.innerHTML += `
 
-                behavior:"smooth"
+<section class="categoria-section">
 
-            });
+    <div class="container">
 
-        };
+        <div class="section-top">
 
-    }
+            <h2>
 
+                <svg xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="section-icon">
 
-    setInterval(()=>{
+                    <path d="m17 2-5 5-5-5"></path>
 
+                    <rect
+                        width="20"
+                        height="15"
+                        x="2"
+                        y="7"
+                        rx="2">
+                    </rect>
 
-        if(
-            slider.scrollLeft + slider.clientWidth
-            >=
-            slider.scrollWidth - 20
-        ){
+                </svg>
 
-            slider.scrollTo({
+                ${nome}
 
-                left:0,
+            </h2>
 
-                behavior:"smooth"
+            <div class="section-actions">
 
-            });
+                <button
+                    id="${id}Prev"
+                    class="slider-btn">
 
+                    ‹
 
-        }else{
+                </button>
 
+                <button
+                    id="${id}Next"
+                    class="slider-btn">
 
-            slider.scrollBy({
+                    ›
 
-                left:largura,
+                </button>
 
-                behavior:"smooth"
+                <a href="#"
+                    class="ver-todos">
 
-            });
+                    Ver todos →
 
+                </a>
 
-        }
+            </div>
 
+        </div>
 
-    },6000);
+        <div
+            id="${id}Slider"
+            class="categoria-slider">
 
+        </div>
+
+    </div>
+
+</section>
+
+`;
+
+    montarCategoria(id,canais);
 
 }
