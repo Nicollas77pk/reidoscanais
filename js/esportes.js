@@ -7,9 +7,10 @@ function montarEsportes(canais){
 
     container.innerHTML = "";
 
-    canais
-    .slice(0,20)
-    .forEach(canal=>{
+   canais
+.filter(canal => canal.category === "Esportes")
+.slice(0,20)
+.forEach(canal=>{
 
         container.innerHTML += `
 
