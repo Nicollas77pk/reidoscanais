@@ -7,9 +7,10 @@ function montarCanaisAbertos(canais){
 
     container.innerHTML = "";
 
-    canais
-    .slice(0,20)
-    .forEach(canal=>{
+canais
+.filter(canal => canal.category === "Entretenimento")
+.slice(0,20)
+.forEach(canal=>{
 
         container.innerHTML += `
 
