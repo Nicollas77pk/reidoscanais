@@ -119,3 +119,21 @@
     color:#2563eb;
 
 }
+
+
+.categoria-slider{
+
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+
+}
+
+
+.categoria-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
