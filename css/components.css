@@ -1,0 +1,51 @@
+/* ==========================
+   BOTÕES DOS SLIDERS
+========================== */
+
+.slider-btn{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+    border:1px solid #e5e7eb;
+
+    font-size:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.slider-btn:hover{
+
+    border-color:#2563eb;
+
+    color:#2563eb;
+
+}
+
+
+.slider-btn:active{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+    border-color:#2563eb;
+
+}
