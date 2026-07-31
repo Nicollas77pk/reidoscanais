@@ -103,79 +103,14 @@ placeholder="Pesquisar canais..."
 </div>
 
 </header>
-
-<!-- ================= MAIN ================= -->
+    
 
 <main>
 
 
-<!-- ================= AGENDA ================= -->
+<!-- ================= AGENDA AO VIVO ================= -->
 
-<section class="categoria-section agenda-section">
-
-    <div class="container">
-
-        <div class="section-top">
-
-            <h2>
-
-                <svg xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="section-icon">
-
-                    <path d="m17 2-5 5-5-5"></path>
-                    <rect width="20" height="15" x="2" y="7" rx="2"></rect>
-
-                </svg>
-
-                Agenda Ao Vivo
-
-            </h2>
-
-
-            <div class="section-actions">
-
-                <button id="agendaPrev" class="slider-btn">
-                    ‹
-                </button>
-
-
-                <button id="agendaNext" class="slider-btn">
-                    ›
-                </button>
-
-
-                <a href="#" class="ver-todos">
-                    Ver todos →
-                </a>
-
-            </div>
-
-
-        </div>
-
-
-        <div id="agendaSlider" class="agenda-slider"></div>
-
-
-    </div>
-
-</section>
-
-
-
-
-<!-- ================= CANAIS ================= -->
-
-
-<section class="categoria-section">
+<section class="agenda-section">
 
     <div class="container">
 
@@ -205,26 +140,39 @@ placeholder="Pesquisar canais..."
 
                 </svg>
 
-                Canais
+                Agenda Ao Vivo
 
             </h2>
+
 
 
             <div class="section-actions">
 
 
-                <button id="categoriaPrev" class="slider-btn">
+                <button 
+                id="agendaPrev" 
+                class="slider-btn">
+
                     ‹
+
                 </button>
 
 
-                <button id="categoriaNext" class="slider-btn">
+
+                <button 
+                id="agendaNext" 
+                class="slider-btn">
+
                     ›
+
                 </button>
+
 
 
                 <a href="#" class="ver-todos">
+
                     Ver todos →
+
                 </a>
 
 
@@ -234,7 +182,12 @@ placeholder="Pesquisar canais..."
         </div>
 
 
-        <div id="categoriaSlider" class="categoria-slider"></div>
+
+        <div 
+        id="agendaSlider" 
+        class="agenda-slider">
+
+        </div>
 
 
     </div>
@@ -245,7 +198,9 @@ placeholder="Pesquisar canais..."
 
 
 
-<!-- ================= CATEGORIAS AUTOMÁTICAS ================= -->
+
+
+<!-- ================= CATEGORIAS ================= -->
 
 
 <div id="categorias"></div>
@@ -253,6 +208,8 @@ placeholder="Pesquisar canais..."
 
 
 </main>
+
+
 
 
     <!-- ================= FOOTER ================= -->
