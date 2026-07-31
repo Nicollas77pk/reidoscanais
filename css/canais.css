@@ -32,11 +32,19 @@
 
 .canal-card{
 
-    min-width:220px;
+    flex:0 0 185px;
 
-    max-width:220px;
+    background:#fff;
 
-    flex-shrink:0;
+    border:1px solid #e5e7eb;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.30s;
 
 }
 
@@ -117,23 +125,5 @@
 .canal-info strong{
 
     color:#2563eb;
-
-}
-
-
-.categoria-slider{
-
-    display:flex;
-    gap:16px;
-    overflow-x:auto;
-    scroll-behavior:smooth;
-    scrollbar-width:none;
-
-}
-
-
-.categoria-slider::-webkit-scrollbar{
-
-    display:none;
 
 }
