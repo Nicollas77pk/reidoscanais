@@ -118,3 +118,35 @@ function iniciarSliderCanais(){
     },6000);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+.categoria-slider{
+
+    display:flex;
+
+    gap:16px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    scrollbar-width:none;
+
+    padding:10px 0;
+
+}
+
+.categoria-slider::-webkit-scrollbar{
+
+    display:none;
+
+}
