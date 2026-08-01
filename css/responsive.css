@@ -266,7 +266,15 @@
     }
 
 }
+@media(max-width:768px){
 
+    main{
+
+        padding-top:25px;
+
+    }
+
+}
 
 /* ===================================
    CELULARES PEQUENOS
