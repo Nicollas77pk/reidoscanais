@@ -194,3 +194,87 @@
     background:var(--primary-dark);
 
 }
+
+
+
+
+
+/* ==========================
+   MENU MOBILE
+========================== */
+
+.menu-btn{
+
+    display:none;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-size:24px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+}
+
+/* Painel */
+
+.menu-mobile{
+
+    position:fixed;
+
+    top:0;
+
+    left:-280px;
+
+    width:260px;
+
+    height:100vh;
+
+    background:#fff;
+
+    box-shadow:0 0 30px rgba(0,0,0,.15);
+
+    z-index:99999;
+
+    transition:.35s;
+
+    padding:80px 20px;
+
+}
+
+.menu-mobile.ativo{
+
+    left:0;
+
+}
+
+.menu-mobile a{
+
+    display:block;
+
+    padding:16px 0;
+
+    color:#111827;
+
+    font-size:17px;
+
+    text-decoration:none;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.menu-mobile a:hover{
+
+    color:#2563eb;
+
+}
