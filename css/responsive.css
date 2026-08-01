@@ -286,6 +286,34 @@
 
 }
 
+
+@media(max-width:768px){
+
+    .section-top h2{
+
+        font-size:18px;
+
+        display:flex;
+
+        align-items:center;
+
+        gap:8px;
+
+        white-space:nowrap;
+
+    }
+
+
+    .section-icon{
+
+        width:20px;
+
+        height:20px;
+
+    }
+
+}
+
 /* ===================================
    CELULARES PEQUENOS
 =================================== */
