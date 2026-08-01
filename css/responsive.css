@@ -64,9 +64,19 @@
 
     .menu{
 
-        display:none;
+    display:none;
 
-    }
+}
+
+.menu-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
 
 
     .logo{
@@ -204,7 +214,25 @@
 
 @media (max-width:480px){
 
-    .logo{
+    .menu{
+
+    display:none;
+
+}
+
+.menu-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+   
+   
+   
+   .logo{
 
         font-size:18px;
 
