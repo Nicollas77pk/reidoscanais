@@ -15,9 +15,67 @@ const atual = document.getElementById("programaAtual");
 const proximo = document.getElementById("proximoPrograma");
 
 
+
+
+
+async function abrirModal(id){
+
+
+    try{
+
+
+        const resposta =
+        await api(`/channels/${id}`);
+
+
+
+        if(!resposta || !resposta.success){
+
+            console.error("Canal não encontrado");
+
+            return;
+
+        }
+
+
+
+        const canal =
+        resposta.data;
+
+
+
+        abrirPlayer(canal);
+
+
+
+    }catch(erro){
+
+
+        console.error(
+            "Erro ao abrir canal:",
+            erro
+        );
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
 function abrirPlayer(canal){
 
-    if(!canal.embeds || canal.embeds.length === 0){
+
+
+    if(
+        !canal.embeds ||
+        canal.embeds.length === 0
+    ){
 
         alert("Player indisponível");
 
@@ -26,27 +84,41 @@ function abrirPlayer(canal){
     }
 
 
-    frame.src = canal.embeds[0].embed_url;
+
+    frame.src =
+    canal.embeds[0].embed_url;
 
 
-    logo.src = canal.logo_url;
 
-    titulo.textContent = canal.name;
+    logo.src =
+    canal.logo_url;
 
-    categoria.textContent = canal.category;
+
+
+    titulo.textContent =
+    canal.name;
+
+
+
+    categoria.textContent =
+    canal.category;
+
 
 
     atual.textContent =
-        canal.epg?.current?.title || 
-        "Sem programação";
+    canal.epg?.current?.title ||
+    "Sem programação";
+
 
 
     proximo.textContent =
-        canal.epg?.next?.title || 
-        "Sem informação";
+    canal.epg?.next?.title ||
+    "Sem informação";
+
 
 
     modal.classList.add("ativo");
+
 
     document.body.style.overflow="hidden";
 
@@ -54,56 +126,46 @@ function abrirPlayer(canal){
 }
 
 
-fechar.onclick = fecharPlayer;
+
+
+
+
+fechar.onclick =
+fecharPlayer;
+
+
+
 
 
 function fecharPlayer(){
 
+
     modal.classList.remove("ativo");
+
 
     frame.src="";
 
+
     document.body.style.overflow="auto";
+
 
 }
 
 
 
+
+
+
 modal.onclick=function(e){
+
 
     if(e.target === modal){
 
+
         fecharPlayer();
 
+
     }
+
 
 };
-
-
-
-document.addEventListener("click",function(e){
-
-
-    const card = e.target.closest(".card");
-
-
-    if(!card) return;
-
-
-
-    const id = card.dataset.id;
-
-
-
-    const canal = STORE.canais.find(c=>c.id===id);
-
-
-
-    if(canal){
-
-        abrirPlayer(canal);
-
-    }
-
-
-});
