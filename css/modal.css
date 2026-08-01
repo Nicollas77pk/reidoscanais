@@ -213,33 +213,13 @@
 
 .fechar{
 
-    position:absolute;
+    position:fixed;
 
-    top:15px;
+    top:20px;
 
-    right:15px;
+    right:20px;
 
-    width:42px;
-
-    height:42px;
-
-    border-radius:50%;
-
-    border:none;
-
-    background:#2563eb;
-
-    color:white;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-    z-index:10;
-
-    transition:.3s;
-
-}
+    width:46
 
 
 .fechar:hover{
