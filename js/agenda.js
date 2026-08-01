@@ -1,11 +1,8 @@
 async function carregarAgenda(){
 
-
     try{
 
-
-        const resposta = await api("/sports");
-
+        const resposta = await api("/sports?status=live");
 
 
         if(!resposta || !resposta.success){
@@ -17,22 +14,20 @@ async function carregarAgenda(){
         }
 
 
+        STORE.esportes = resposta.data;
+
 
         montarAgenda(resposta.data);
 
 
-
     }catch(erro){
-
 
         console.error(
             "Erro agenda:",
             erro
         );
 
-
     }
-
 
 }
 
@@ -77,7 +72,10 @@ function montarAgenda(eventos){
         container.innerHTML += `
 
 
-        <div class="event-card">
+       <div 
+class="event-card"
+data-id="${evento.id}"
+data-tipo="sport">
 
 
             <div class="event-image">
