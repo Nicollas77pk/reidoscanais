@@ -55,41 +55,37 @@
 
     /* HEADER */
 
-    .search{
+   @media (max-width:768px){
+
+    .header .container{
+
+        display:flex;
+        flex-wrap:wrap;
+        align-items:center;
+
+    }
+
+    .menu{
 
         display:none;
 
     }
 
-
-    .menu{
-
-    display:none;
-
-}
-
-.menu-btn{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-
     .logo{
 
-        font-size:20px;
+        flex:1;
 
     }
 
-    .logo img{
+    .search{
 
-        height:42px;
+        width:100%;
+        margin-top:12px;
+        order:99;
 
     }
+
+}
 
 
     /* HERO */
