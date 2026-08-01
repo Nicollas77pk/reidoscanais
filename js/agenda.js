@@ -52,7 +52,15 @@ function montarAgenda(eventos){
 
     container.innerHTML="";
 
+eventos.sort((a,b)=>{
 
+    if(a.status==="live") return -1;
+
+    if(b.status==="live") return 1;
+
+    return a.start_timestamp - b.start_timestamp;
+
+});
 
     eventos
     .filter(e => e.status !== "finished")
