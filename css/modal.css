@@ -49,6 +49,58 @@
 
 }
 
+/* ==========================
+   SCROLL MODERNO
+========================== */
+
+.modal-content{
+
+    scrollbar-width:thin;
+
+    scrollbar-color:#2563eb #f3f4f6;
+
+}
+
+/* Chrome, Edge e Opera */
+
+.modal-content::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.modal-content::-webkit-scrollbar-track{
+
+    background:#f3f4f6;
+
+    border-radius:20px;
+
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        180deg,
+        #3b82f6,
+        #2563eb
+    );
+
+    border-radius:20px;
+
+    border:2px solid #f3f4f6;
+
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover{
+
+    background:linear-gradient(
+        180deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+}
+
 
 /* PLAYER */
 
