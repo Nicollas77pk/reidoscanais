@@ -259,6 +259,19 @@
 
     }
 
+   .fechar{
+
+    top:12px;
+
+    right:12px;
+
+    width:42px;
+
+    height:42px;
+
+    font-size:20px;
+
+}
     .modal-info img{
 
         width:56px;
