@@ -223,57 +223,54 @@ placeholder="Pesquisar canais..."
     </footer>
 
         <!-- MODAL PLAYER -->
+<div id="playerModal" class="modal">
 
-    <div id="playerModal" class="modal">
+    <button id="fecharModal" class="fechar">
+        ✕
+    </button>
 
-        <div class="modal-content">
+    <div class="modal-content">
 
-            <button id="fecharModal" class="fechar">
-                ✕
-            </button>
+        <div class="player">
 
-            <div class="player">
+            <iframe
+                id="playerFrame"
+                allowfullscreen
+                frameborder="0"
+                allow="autoplay; encrypted-media; picture-in-picture">
+            </iframe>
 
-                <iframe
-                    id="playerFrame"
-                    allowfullscreen
-                    frameborder="0"
-                    allow="autoplay; encrypted-media; picture-in-picture">
-                </iframe>
+        </div>
 
-            </div>
+        <div class="modal-info">
 
+            <img id="modalLogo" src="" alt="">
 
-            <div class="modal-info">
+            <div>
 
-                <img id="modalLogo" src="" alt="">
+                <h2 id="modalTitulo"></h2>
 
-
-                <div>
-
-                    <h2 id="modalTitulo"></h2>
-
-                    <span id="modalCategoria"></span>
-
-                </div>
+                <span id="modalCategoria"></span>
 
             </div>
 
+        </div>
 
-           <div class="programacao">
+        <div class="programacao">
 
-    <h3>🔴 Agora</h3>
+            <h3>🔴 Agora</h3>
 
-    <p id="programaAtual"></p>
+            <p id="programaAtual"></p>
 
-    <h3>Depois</h3>
+            <h3>Depois</h3>
 
-    <p id="proximoPrograma"></p>
+            <p id="proximoPrograma"></p>
 
-</div>
         </div>
 
     </div>
+
+</div>
 
 
     <!-- JavaScript -->
