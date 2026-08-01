@@ -1,1 +1,245 @@
+/* ===================================
+   NOTEBOOKS
+=================================== */
 
+@media (max-width:1200px){
+
+    .container{
+
+        width:95%;
+
+    }
+
+}
+
+
+/* ===================================
+   TABLETS
+=================================== */
+
+@media (max-width:992px){
+
+    .container{
+
+        width:95%;
+
+    }
+
+}
+
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width:768px){
+
+    html{
+
+        overflow-x:hidden;
+
+    }
+
+    body{
+
+        overflow-x:hidden;
+
+    }
+
+    .container{
+
+        width:94%;
+
+    }
+
+
+    /* HEADER */
+
+    .search{
+
+        display:none;
+
+    }
+
+
+    .menu{
+
+        display:none;
+
+    }
+
+
+    .logo{
+
+        font-size:20px;
+
+    }
+
+    .logo img{
+
+        height:42px;
+
+    }
+
+
+    /* HERO */
+
+    .hero{
+
+        height:320px;
+
+    }
+
+    .hero h1{
+
+        font-size:28px;
+
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+
+    /* SEÇÕES */
+
+    .categoria-section,
+    .agenda-section{
+
+        padding:28px 0;
+
+    }
+
+    .section-top{
+
+        margin-bottom:15px;
+
+    }
+
+    .section-top h2{
+
+        font-size:20px;
+
+    }
+
+
+    /* BOTÕES */
+
+    .slider-btn{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:18px;
+
+    }
+
+    .ver-todos{
+
+        font-size:13px;
+
+    }
+
+
+    /* CARDS */
+
+    .canal-card{
+
+        flex:0 0 165px;
+
+    }
+
+    .event-card{
+
+        flex:0 0 235px;
+
+    }
+
+
+    /* MODAL */
+
+    .modal{
+
+        padding:10px;
+
+    }
+
+    .modal-content{
+
+        width:100%;
+
+        max-height:96vh;
+
+        border-radius:16px;
+
+    }
+
+    .modal-info{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:12px;
+
+    }
+
+    .modal-info img{
+
+        width:60px;
+
+        height:60px;
+
+    }
+
+}
+
+
+/* ===================================
+   CELULARES PEQUENOS
+=================================== */
+
+@media (max-width:480px){
+
+    .logo{
+
+        font-size:18px;
+
+    }
+
+    .logo img{
+
+        height:36px;
+
+    }
+
+    .section-top h2{
+
+        font-size:18px;
+
+    }
+
+    .canal-card{
+
+        flex:0 0 150px;
+
+    }
+
+    .event-card{
+
+        flex:0 0 215px;
+
+    }
+
+    .slider-btn{
+
+        width:34px;
+
+        height:34px;
+
+    }
+
+}
