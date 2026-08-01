@@ -77,14 +77,65 @@
 
     }
 
-    .search{
+   .search{
 
-        width:100%;
-        margin-top:12px;
-        order:99;
+    width:100%;
 
-    }
+    display:flex;
 
+    align-items:center;
+
+    margin-top:12px;
+
+    background:#fff;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    height:42px;
+
+}
+
+
+.search input{
+
+    flex:1;
+
+    height:100%;
+
+    border:none;
+
+    padding:0 15px;
+
+    font-size:14px;
+
+    outline:none;
+
+}
+
+
+.search button{
+
+    width:45px;
+
+    height:100%;
+
+    border:none;
+
+    background:transparent;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
 }
 
 
