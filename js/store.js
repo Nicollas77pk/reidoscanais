@@ -1,6 +1,8 @@
 // Armazena todos os canais carregados pela API
 const STORE = {
 
-    canais: []
+    canais: [],
+
+    esportes: []
 
 };
