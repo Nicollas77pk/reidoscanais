@@ -63,7 +63,49 @@ async function abrirModal(id){
 }
 
 
+async function abrirModalEsporte(id){
 
+
+    try{
+
+
+        const resposta =
+        await api(`/sports/${id}`);
+
+
+
+        if(!resposta || !resposta.success){
+
+            console.error("Evento não encontrado");
+
+            return;
+
+        }
+
+
+
+        const evento =
+        resposta.data;
+
+
+
+        abrirPlayerEsporte(evento);
+
+
+
+    }catch(erro){
+
+
+        console.error(
+            "Erro ao abrir esporte:",
+            erro
+        );
+
+
+    }
+
+
+}
 
 
 
@@ -169,3 +211,62 @@ modal.onclick=function(e){
 
 
 };
+function abrirPlayerEsporte(evento){
+
+
+
+    if(
+        !evento.embeds ||
+        evento.embeds.length === 0
+    ){
+
+        alert("Transmissão indisponível");
+
+        return;
+
+    }
+
+
+
+    frame.src =
+    evento.embeds[0].embed_url;
+
+
+
+    logo.src =
+    evento.poster;
+
+
+
+    titulo.textContent =
+    evento.title;
+
+
+
+    categoria.textContent =
+    evento.competition;
+
+
+
+    atual.textContent =
+    evento.description ||
+    "Evento ao vivo";
+
+
+
+    proximo.textContent =
+    evento.start_time
+    ?
+    "Início: " + evento.start_time
+    :
+    "Sem horário";
+
+
+
+    modal.classList.add("ativo");
+
+
+    document.body.style.overflow="hidden";
+
+
+}
