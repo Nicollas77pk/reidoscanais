@@ -2,7 +2,7 @@ async function carregarAgenda(){
 
     try{
 
-        const resposta = await api("/sports?status=live");
+        const resposta = await api("/sports");
 
 
         if(!resposta || !resposta.success){
@@ -91,10 +91,15 @@ onclick="abrirModalEsporte('${evento.id}')">
 
                 <span class="event-badge">
 
-                    ⏰ Hoje · ${hora}
+${
+evento.status === "live"
+?
+"🔴 AO VIVO"
+:
+"⏰ Hoje " + hora
+}
 
-                </span>
-
+</span>
 
             </div>
 
