@@ -72,10 +72,11 @@ function montarAgenda(eventos){
         container.innerHTML += `
 
 
-       <div 
+<div 
 class="event-card"
 data-id="${evento.id}"
-data-tipo="sport">
+data-tipo="sport"
+onclick="abrirModalEsporte('${evento.id}')">
 
 
             <div class="event-image">
