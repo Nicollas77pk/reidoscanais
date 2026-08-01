@@ -288,7 +288,15 @@
 
 @media(max-width:768px){
 
-    .section-top h2{
+    .categoria-section,
+    .agenda-section{
+
+        padding:28px 0;
+
+    }
+   
+   
+   .section-top h2{
 
         font-size:13px;
 
