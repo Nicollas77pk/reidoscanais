@@ -14,11 +14,17 @@
    CABEÇALHO
 ========================== */
 
+/* ==========================
+   CABEÇALHO
+========================== */
+
 .categoria-header{
 
     max-width:900px;
 
-    margin:0 0 40px;
+    margin:0 auto 45px;
+
+    text-align:center;
 
 }
 
@@ -36,7 +42,9 @@
 
 .categoria-descricao{
 
-    max-width:720px;
+    max-width:700px;
+
+    margin:0 auto;
 
     color:#6b7280;
 
@@ -45,7 +53,6 @@
     line-height:1.7;
 
 }
-
 
 
 /* ==========================
@@ -282,9 +289,9 @@
 
     }
 
-    .categoria-header{
+   .categoria-header{
 
-        margin-bottom:30px;
+        margin:0 auto 35px;
 
     }
 
@@ -296,7 +303,11 @@
 
     .categoria-descricao{
 
+        max-width:100%;
+
         font-size:15px;
+
+        line-height:1.6;
 
     }
 
