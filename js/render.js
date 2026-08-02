@@ -1,4 +1,4 @@
-function montarPagina(canais){
+function montarPagina(canais, destino="categorias"){
 
 
     const categorias = {};
@@ -30,7 +30,7 @@ function montarPagina(canais){
 
 
     const container =
-    document.getElementById("categorias");
+document.getElementById(destino);
 
 
 
@@ -88,7 +88,7 @@ function gerarId(nome){
 
 
 
-function criarCategoria(nome,canais){
+function criarCategoria(nome,canais,destino="categorias"){
 
 
     const id = gerarId(nome);
@@ -475,5 +475,28 @@ function iniciarSliderCategoria(id){
     });
 
 
+
+}
+
+
+function adicionarCategoriaSlider(nome,canais,destino){
+
+    const container =
+    document.getElementById(destino);
+
+
+    if(!container) return;
+
+
+    container.innerHTML += 
+    criarCategoria(
+        nome,
+        canais
+    );
+
+
+    iniciarSliderCategoria(
+        gerarId(nome)
+    );
 
 }
