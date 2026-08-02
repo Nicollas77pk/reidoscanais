@@ -1,0 +1,241 @@
+/* ==========================
+   PÁGINA DE CATEGORIA
+========================== */
+
+
+.categoria-page{
+
+    padding:40px 0 60px;
+
+}
+
+
+
+/* CABEÇALHO */
+
+.categoria-header{
+
+    margin-bottom:35px;
+
+}
+
+
+.categoria-header h1{
+
+    font-size:36px;
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+}
+
+
+
+.categoria-header p{
+
+    color:var(--text-soft);
+
+    font-size:16px;
+
+}
+
+
+
+
+/* GRID DE CANAIS */
+
+
+.categoria-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:20px;
+
+}
+
+
+
+/* CARD */
+
+
+.categoria-grid .canal-card{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.categoria-grid .canal-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+
+/* LOGO */
+
+
+.categoria-grid .canal-logo{
+
+    height:120px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#f8fafc;
+
+    padding:20px;
+
+}
+
+
+
+.categoria-grid .canal-logo img{
+
+    max-width:100%;
+
+    max-height:80px;
+
+    object-fit:contain;
+
+}
+
+
+
+/* INFORMAÇÕES */
+
+
+.categoria-grid .canal-info{
+
+    padding:15px;
+
+}
+
+
+
+.categoria-grid h3{
+
+    font-size:17px;
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+}
+
+
+
+.categoria-grid p{
+
+    font-size:13px;
+
+    color:var(--text-soft);
+
+    line-height:1.4;
+
+}
+
+
+
+
+
+/* ==========================
+   TABLET
+========================== */
+
+
+@media(max-width:1000px){
+
+
+    .categoria-grid{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+
+}
+
+
+
+/* ==========================
+   CELULAR
+========================== */
+
+
+@media(max-width:600px){
+
+
+    .categoria-page{
+
+        padding:25px 0 40px;
+
+    }
+
+
+
+    .categoria-header h1{
+
+        font-size:26px;
+
+    }
+
+
+
+    .categoria-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:12px;
+
+    }
+
+
+
+    .categoria-grid .canal-logo{
+
+        height:90px;
+
+        padding:12px;
+
+    }
+
+
+
+    .categoria-grid h3{
+
+        font-size:14px;
+
+    }
+
+
+
+    .categoria-grid p{
+
+        font-size:12px;
+
+    }
+
+
+}
