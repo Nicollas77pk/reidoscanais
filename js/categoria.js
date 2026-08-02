@@ -109,6 +109,7 @@ async function iniciarCategoria() {
 
 
         montarGrid(resposta.data);
+        carregarOutrasCategorias(categoria);
 
         // Próxima etapa
         // montarVejaTambem(categoria);
@@ -172,5 +173,39 @@ onclick="abrirModal('${canal.id}')">
 `;
 
     });
+
+}
+
+
+
+async function carregarOutrasCategorias(categoriaAtual){
+
+    const respostaCategorias =
+    await api("/channels/categories");
+
+    if(!respostaCategorias.success) return;
+
+    const container =
+    document.getElementById("outrasCategorias");
+
+    container.innerHTML = "";
+
+    for(const categoria of respostaCategorias.data){
+
+        if(categoria === categoriaAtual) continue;
+
+        const resposta =
+        await api(
+            `/channels?category=${encodeURIComponent(categoria)}`
+        );
+
+        if(!resposta.success) continue;
+
+        criarCategoria(
+            categoria,
+            resposta.data
+        );
+
+    }
 
 }
