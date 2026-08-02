@@ -207,7 +207,78 @@
 }
 
 
+/* ==========================
+   REDES SOCIAIS
+========================== */
 
+
+.social-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    color:#d1d5db;
+
+    font-size:15px;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+
+
+.social-link i{
+
+    font-size:22px;
+
+}
+
+
+
+/* TELEGRAM */
+
+.telegram i{
+
+    color:#229ED9;
+
+}
+
+
+
+.telegram:hover{
+
+    color:#229ED9;
+
+    transform:translateX(5px);
+
+}
+
+
+
+/* WHATSAPP */
+
+.whatsapp i{
+
+    color:#25D366;
+
+}
+
+
+
+.whatsapp:hover{
+
+    color:#25D366;
+
+    transform:translateX(5px);
+
+}
 
 
 /* ==========================
