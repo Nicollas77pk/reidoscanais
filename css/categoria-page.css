@@ -1,7 +1,6 @@
 /* ==========================
-   PÁGINA DE CATEGORIA
+   PÁGINA DA CATEGORIA
 ========================== */
-
 
 .categoria-page{
 
@@ -9,35 +8,23 @@
 
 }
 
-
-
-/* CABEÇALHO */
-
 .categoria-header{
 
-    margin-bottom:35px;
+    max-width:900px;
+
+    margin:0 0 35px;
 
 }
 
 .categoria-header h1{
 
-    font-size:38px;
-
-    color:#111827;
-
-    margin-bottom:10px;
+    margin-bottom:12px;
 
 }
 
 .categoria-descricao{
 
-    max-width:700px;
-
-    color:#6b7280;
-
-    font-size:17px;
-
-    line-height:1.7;
+    max-width:720px;
 
 }
 
