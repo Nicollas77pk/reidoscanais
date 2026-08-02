@@ -276,14 +276,16 @@
 
 /* OUTRAS */
 
+/* OUTRAS */
+
 .titulo-outras-texto{
 
     color:white;
 
-    -webkit-text-stroke:1.5px #2563eb;
+    -webkit-text-stroke:0.5px #2563eb;
 
     text-shadow:
-    0 0 8px rgba(37,99,235,.25);
+    0 0 4px rgba(37,99,235,.18);
 
 }
 
