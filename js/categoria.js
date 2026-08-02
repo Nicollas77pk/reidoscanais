@@ -107,8 +107,6 @@ async function iniciarCategoria() {
 
         STORE.canais = resposta.data;
 
-        document.getElementById("totalCanais").textContent =
-            `${resposta.data.length} canais encontrados`;
 
         montarGrid(resposta.data);
 
