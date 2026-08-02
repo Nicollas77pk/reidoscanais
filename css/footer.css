@@ -282,6 +282,48 @@
 
 
 /* ==========================
+   AVISO LEGAL
+========================== */
+
+.footer-aviso{
+
+    max-width:900px;
+
+    margin:40px auto 30px;
+
+    text-align:center;
+
+    padding:20px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+}
+
+
+.footer-aviso h3{
+
+    font-size:16px;
+
+    margin-bottom:10px;
+
+    color:#2563eb;
+
+}
+
+
+
+.footer-aviso p{
+
+    color:#9ca3af;
+
+    font-size:14px;
+
+    line-height:1.6;
+
+}
+
+
+/* ==========================
    RESPONSIVO
 ========================== */
 
