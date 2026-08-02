@@ -1,3 +1,5 @@
+console.log("CATEGORIAS.JS CARREGADO");
+
 async function carregarCategorias(){
 
     try{
