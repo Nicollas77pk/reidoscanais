@@ -180,32 +180,68 @@ onclick="abrirModal('${canal.id}')">
 
 async function carregarOutrasCategorias(categoriaAtual){
 
+
     const respostaCategorias =
     await api("/channels/categories");
 
+
     if(!respostaCategorias.success) return;
+
+
 
     const container =
     document.getElementById("outrasCategorias");
 
+
+
+    if(!container) return;
+
+
+
     container.innerHTML = "";
+
+
 
     for(const categoria of respostaCategorias.data){
 
-        if(categoria === categoriaAtual) continue;
+
+
+        if(categoria === categoriaAtual){
+
+            continue;
+
+        }
+
+
 
         const resposta =
         await api(
             `/channels?category=${encodeURIComponent(categoria)}`
         );
 
-        if(!resposta.success) continue;
 
-        criarCategoria(
+
+        if(!resposta.success){
+
+            continue;
+
+        }
+
+
+
+        adicionarCategoriaSlider(
+
             categoria,
-            resposta.data
+
+            resposta.data,
+
+            "outrasCategorias"
+
         );
 
+
+
     }
+
 
 }
