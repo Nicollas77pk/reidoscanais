@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", iniciarCategoria);
 
-async function iniciarCategoria(){
+async function iniciarCategoria() {
 
     const params = new URLSearchParams(window.location.search);
 
     const categoria = params.get("categoria");
 
-    if(!categoria){
+    if (!categoria) {
 
         window.location.href = "index.html";
 
@@ -14,18 +14,41 @@ async function iniciarCategoria(){
 
     }
 
-    document.title = categoria + " | Rei Dos Canais";
+    // SEO
+    document.title =
+        `${categoria} ao vivo | Assistir ${categoria} Online | Rei Dos Canais`;
 
-    document.getElementById("tituloCategoria").textContent = categoria;
+    const metaDescription =
+        document.querySelector('meta[name="description"]');
 
-    try{
+    if (metaDescription) {
+
+        metaDescription.setAttribute(
+            "content",
+            `Assista aos melhores canais de ${categoria} ao vivo. Veja programação, canais populares e muito mais no Rei Dos Canais.`
+        );
+
+    }
+
+    // Título da página
+
+    document.getElementById("tituloCategoria").textContent =
+        `Canais de ${categoria}`;
+
+    try {
 
         const resposta =
-        await api(`/channels?category=${encodeURIComponent(categoria)}`);
+            await api(`/channels?category=${encodeURIComponent(categoria)}`);
 
-        if(!resposta || !resposta.success){
+        if (!resposta || !resposta.success) {
 
-            console.error("Categoria não encontrada");
+            console.error("Categoria não encontrada.");
+
+            document.getElementById("listaCanais").innerHTML = `
+                <p class="sem-resultados">
+                    Nenhum canal encontrado.
+                </p>
+            `;
 
             return;
 
@@ -34,26 +57,33 @@ async function iniciarCategoria(){
         STORE.canais = resposta.data;
 
         document.getElementById("totalCanais").textContent =
-        `${resposta.data.length} canais`;
+            `${resposta.data.length} canais encontrados`;
 
         montarGrid(resposta.data);
 
-    }catch(erro){
+        // Próxima etapa
+        // montarVejaTambem(categoria);
 
-        console.error(erro);
+    }
+
+    catch (erro) {
+
+        console.error("Erro:", erro);
 
     }
 
 }
 
-function montarGrid(canais){
+
+
+function montarGrid(canais) {
 
     const container =
-    document.getElementById("listaCanais");
+        document.getElementById("listaCanais");
 
     container.innerHTML = "";
 
-    canais.forEach(canal=>{
+    canais.forEach(canal => {
 
         container.innerHTML += `
 
@@ -72,7 +102,11 @@ onclick="abrirModal('${canal.id}')">
 
     <div class="canal-info">
 
-        <h3>${canal.name}</h3>
+        <h3>
+
+            ${canal.name}
+
+        </h3>
 
         <p>
 
