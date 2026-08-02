@@ -202,23 +202,28 @@ async function carregarOutrasCategorias(categoriaAtual){
 
 
 
-    for(const categoria of respostaCategorias.data){
+    for(const item of respostaCategorias.data){
+
+
+    const categoria =
+    typeof item === "string"
+    ? item
+    : item.name;
 
 
 
-        if(categoria === categoriaAtual){
+    if(categoria === categoriaAtual){
 
-            continue;
+        continue;
 
-        }
+    }
 
 
 
-        const resposta =
-        await api(
-            `/channels?category=${encodeURIComponent(categoria)}`
-        );
-
+    const resposta =
+    await api(
+        `/channels?category=${encodeURIComponent(categoria)}`
+    );
 
 
         if(!resposta.success){
