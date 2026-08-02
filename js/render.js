@@ -4,15 +4,11 @@ function montarPagina(canais, destino="categorias"){
     const categorias = {};
 
 
-
-    // Separar canais por categoria
-
     canais.forEach(canal=>{
 
 
         const categoria =
         canal.category || "Outros";
-
 
 
         if(!categorias[categoria]){
@@ -30,7 +26,7 @@ function montarPagina(canais, destino="categorias"){
 
 
     const container =
-document.getElementById(destino);
+    document.getElementById(destino);
 
 
 
@@ -41,37 +37,42 @@ document.getElementById(destino);
     container.innerHTML = "";
 
 
-Object.keys(categorias).forEach(nome=>{
-
-
-    container.insertAdjacentHTML(
-        "beforeend",
-        criarCategoria(
-            nome,
-            categorias[nome]
-        )
-    );
-
-
-});
-
-
-
-    requestAnimationFrame(()=>{
-
 
     Object.keys(categorias).forEach(nome=>{
 
 
-        iniciarSliderCategoria(
-            gerarId(nome)
+        container.insertAdjacentHTML(
+            "beforeend",
+            criarCategoria(
+                nome,
+                categorias[nome]
+            )
         );
 
 
     });
 
 
-});
+
+    requestAnimationFrame(()=>{
+
+
+        Object.keys(categorias).forEach(nome=>{
+
+
+            iniciarSliderCategoria(
+                gerarId(nome)
+            );
+
+
+        });
+
+
+    });
+
+
+}
+
 
 
 
@@ -92,7 +93,8 @@ function gerarId(nome){
 
 
 
-function criarCategoria(nome,canais,destino="categorias"){
+
+function criarCategoria(nome,canais){
 
 
     const id = gerarId(nome);
@@ -100,7 +102,6 @@ function criarCategoria(nome,canais,destino="categorias"){
 
 
     return `
-
 
 <section class="categoria-section">
 
@@ -125,7 +126,6 @@ stroke-linecap="round"
 stroke-linejoin="round"
 class="section-icon">
 
-
 <path d="m17 2-5 5-5-5"></path>
 
 
@@ -145,7 +145,6 @@ ${nome}
 
 
 </h2>
-
 
 
 
@@ -189,6 +188,7 @@ Ver todos →
 
 
 
+
 <div 
 id="${id}Slider"
 class="categoria-slider">
@@ -210,6 +210,7 @@ ${criarCards(canais)}
 `;
 
 }
+
 
 
 
@@ -265,7 +266,6 @@ ${canal.name}
 
 <p>
 
-
 <strong>Agora:</strong><br>
 
 
@@ -287,6 +287,7 @@ ${canal.epg?.current?.title ||
 `;
 
 
+
     });
 
 
@@ -295,6 +296,8 @@ ${canal.epg?.current?.title ||
 
 
 }
+
+
 
 
 
@@ -338,6 +341,7 @@ function iniciarSliderCategoria(id){
 
 
 
+
     if(next){
 
 
@@ -357,7 +361,6 @@ function iniciarSliderCategoria(id){
 
 
     }
-
 
 
 
@@ -421,8 +424,9 @@ function iniciarSliderCategoria(id){
         }
 
 
-
     },6000);
+
+
 
 
 
@@ -435,45 +439,24 @@ function iniciarSliderCategoria(id){
 
 
 
+
+
     slider.addEventListener("mouseleave",()=>{
 
 
         intervalo=setInterval(()=>{
 
 
-            if(
-                slider.scrollLeft + slider.clientWidth
-                >=
-                slider.scrollWidth - 20
-            ){
+            slider.scrollBy({
 
+                left:largura,
 
-                slider.scrollTo({
+                behavior:"smooth"
 
-                    left:0,
-
-                    behavior:"smooth"
-
-                });
-
-
-            }else{
-
-
-                slider.scrollBy({
-
-                    left:largura,
-
-                    behavior:"smooth"
-
-                });
-
-
-            }
+            });
 
 
         },6000);
-
 
 
     });
@@ -481,6 +464,11 @@ function iniciarSliderCategoria(id){
 
 
 }
+
+
+
+
+
 
 
 function adicionarCategoriaSlider(nome,canais,destino){
@@ -496,19 +484,25 @@ function adicionarCategoriaSlider(nome,canais,destino){
 
 
     container.insertAdjacentHTML(
+
         "beforeend",
-        criarCategoria(nome,canais)
+
+        criarCategoria(
+            nome,
+            canais
+        )
+
     );
-
-
-
-    const id = gerarId(nome);
 
 
 
     requestAnimationFrame(()=>{
 
-        iniciarSliderCategoria(id);
+
+        iniciarSliderCategoria(
+            gerarId(nome)
+        );
+
 
     });
 
