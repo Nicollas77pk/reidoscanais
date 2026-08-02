@@ -35,12 +35,7 @@ async function iniciarCategoria() {
     document.getElementById("tituloCategoria").textContent =
         `Canais de ${categoria}`;
 
-    document.getElementById("breadcrumbCategoria").textContent =
-categoria;
-
-document.getElementById("descricaoCategoria").textContent =
-`Assista aos melhores canais de ${categoria.toLowerCase()} ao vivo, com programação atualizada e acesso rápido aos principais conteúdos.`;
-
+    
     try {
 
         const resposta =
