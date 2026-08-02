@@ -9,11 +9,6 @@
 }
 
 
-
-/* ==========================
-   CABEÇALHO
-========================== */
-
 /* ==========================
    CABEÇALHO
 ========================== */
@@ -257,6 +252,54 @@
 
 }
 
+/* ==========================
+   TITULO OUTRAS CATEGORIAS
+========================== */
+
+
+.titulo-outras{
+
+    width:100%;
+
+    text-align:center;
+
+    margin:50px 0 35px;
+
+    font-size:32px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+}
+
+
+/* OUTRAS */
+
+.titulo-outras-texto{
+
+    color:white;
+
+    -webkit-text-stroke:1.5px #2563eb;
+
+    text-shadow:
+    0 0 8px rgba(37,99,235,.25);
+
+}
+
+
+
+/* CATEGORIAS */
+
+.titulo-categorias-texto{
+
+    color:#2563eb;
+
+    font-weight:900;
+
+}
+
+
 
 
 /* ==========================
@@ -366,3 +409,19 @@
     }
 
 }
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .titulo-outras{
+
+        font-size:24px;
+
+        margin:35px 0 25px;
+
+    }
+
+}
+
