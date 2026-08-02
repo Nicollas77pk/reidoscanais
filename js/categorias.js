@@ -120,12 +120,13 @@ function criarSecaoCategoria(nome,canais){
 
                 </button>
 
-                <a href="#"
-                    class="ver-todos">
+                <a 
+href="categoria.html?categoria=${encodeURIComponent(nome)}"
+class="ver-todos">
 
-                    Ver todos →
+Ver todos →
 
-                </a>
+</a>
 
             </div>
 
