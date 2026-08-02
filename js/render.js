@@ -41,18 +41,23 @@ document.getElementById(destino);
     container.innerHTML = "";
 
 
+Object.keys(categorias).forEach(nome=>{
 
-    Object.keys(categorias).forEach(nome=>{
 
-
-        container.innerHTML += criarCategoria(
+    container.insertAdjacentHTML(
+        "beforeend",
+        criarCategoria(
             nome,
             categorias[nome]
-        );
+        )
+    );
 
 
-    });
+});
 
+
+
+    requestAnimationFrame(()=>{
 
 
     Object.keys(categorias).forEach(nome=>{
@@ -66,8 +71,7 @@ document.getElementById(destino);
     });
 
 
-}
-
+});
 
 
 
@@ -491,24 +495,22 @@ function adicionarCategoriaSlider(nome,canais,destino){
 
 
 
-    const id =
-    gerarId(nome);
-
-
-
-    container.innerHTML += 
-    criarCategoria(
-        nome,
-        canais
+    container.insertAdjacentHTML(
+        "beforeend",
+        criarCategoria(nome,canais)
     );
 
 
 
-    setTimeout(()=>{
+    const id = gerarId(nome);
+
+
+
+    requestAnimationFrame(()=>{
 
         iniciarSliderCategoria(id);
 
-    },100);
+    });
 
 
 }
