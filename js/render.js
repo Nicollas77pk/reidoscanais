@@ -168,7 +168,8 @@ class="slider-btn">
 
 
 
-<a href="#"
+<a
+href="categoria.html?categoria=${encodeURIComponent(nome)}"
 class="ver-todos">
 
 Ver todos →
