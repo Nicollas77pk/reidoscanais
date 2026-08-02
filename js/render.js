@@ -481,11 +481,19 @@ function iniciarSliderCategoria(id){
 
 function adicionarCategoriaSlider(nome,canais,destino){
 
+
     const container =
     document.getElementById(destino);
 
 
+
     if(!container) return;
+
+
+
+    const id =
+    gerarId(nome);
+
 
 
     container.innerHTML += 
@@ -495,8 +503,12 @@ function adicionarCategoriaSlider(nome,canais,destino){
     );
 
 
-    iniciarSliderCategoria(
-        gerarId(nome)
-    );
+
+    setTimeout(()=>{
+
+        iniciarSliderCategoria(id);
+
+    },100);
+
 
 }
