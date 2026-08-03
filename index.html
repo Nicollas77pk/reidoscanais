@@ -84,21 +84,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
         </nav>
 
+        
 
-        <div class="search">
+<div class="search">
 
-            <input 
-            id="campoBusca"
-            placeholder="Pesquisar canais...">
+    <input
+        id="campoBusca"
+        type="search"
+        autocomplete="off"
+        placeholder="Pesquisar canais...">
 
-            <button id="btnBusca">
-                🔍
-            </button>
+    <button id="btnBusca">
 
-        </div>
+        🔍
 
+    </button>
+
+    <div
+        id="resultadoBusca"
+        class="resultado-busca">
 
     </div>
+
+</div>
 
 
 </header>
@@ -529,6 +537,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <script src="js/render.js"></script>
 
+<script src="js/busca.js"></script>
+    
 <script src="js/modal.js"></script>
 
 <script src="js/home.js"></script>
