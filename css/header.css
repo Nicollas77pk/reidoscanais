@@ -12,8 +12,6 @@
 
 }
 
-
-
 .header .container{
 
     height:75px;
@@ -29,7 +27,9 @@
 }
 
 
-/* LOGO */
+/* ==========================
+   LOGO
+========================== */
 
 .logo{
 
@@ -40,7 +40,6 @@
     gap:10px;
 
 }
-
 
 .logo-icon{
 
@@ -56,14 +55,13 @@
 
     background:var(--primary);
 
-    color:white;
+    color:#fff;
 
     border-radius:12px;
 
     font-size:22px;
 
 }
-
 
 .logo-text{
 
@@ -75,7 +73,6 @@
 
 }
 
-
 .logo-text span{
 
     font-size:16px;
@@ -83,7 +80,6 @@
     color:var(--text-soft);
 
 }
-
 
 .logo-text strong{
 
@@ -94,8 +90,9 @@
 }
 
 
-
-/* MENU */
+/* ==========================
+   MENU
+========================== */
 
 .menu{
 
@@ -106,8 +103,6 @@
     gap:25px;
 
 }
-
-
 
 .menu a{
 
@@ -121,77 +116,9 @@
 
 }
 
-
-
 .menu a:hover{
 
     color:var(--primary);
-
-}
-
-
-
-/* BUSCA */
-
-.search{
-
-    display:flex;
-
-    align-items:center;
-
-    background:var(--surface);
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
-    overflow:hidden;
-
-}
-
-
-
-.search input{
-
-    width:180px;
-
-    padding:10px 12px;
-
-    border:0;
-
-    outline:none;
-
-    background:transparent;
-
-    color:var(--text);
-
-}
-
-
-
-.search button{
-
-    border:0;
-
-    background:var(--primary);
-
-    color:white;
-
-    height:40px;
-
-    width:42px;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-}
-
-
-
-.search button:hover{
-
-    background:var(--primary-dark);
 
 }
 
@@ -204,9 +131,76 @@
 
     position:relative;
 
+    display:flex;
+
+    align-items:center;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    overflow:visible;
+
+}
+
+.search input{
+
+    width:220px;
+
+    height:42px;
+
+    border:none;
+
+    outline:none;
+
+    padding:0 14px;
+
+    background:transparent;
+
+    color:var(--text);
+
+    font-size:14px;
+
+}
+
+.search input::placeholder{
+
+    color:#9ca3af;
+
+}
+
+.search button{
+
+    width:46px;
+
+    height:42px;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.25s;
+
+}
+
+.search button:hover{
+
+    background:var(--primary-dark);
+
 }
 
 
+/* ==========================
+   RESULTADOS
+========================== */
 
 .resultado-busca{
 
@@ -218,21 +212,43 @@
 
     width:100%;
 
-    background:white;
+    background:#fff;
 
-    border-radius:14px;
+    border-radius:16px;
 
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
+    box-shadow:0 18px 45px rgba(0,0,0,.18);
 
     overflow:hidden;
 
     display:none;
 
-    z-index:9999;
+    z-index:99999;
+
+    border:1px solid #e5e7eb;
+
+    animation:fadeBusca .18s ease;
 
 }
 
+@keyframes fadeBusca{
 
+    from{
+
+        opacity:0;
+
+        transform:translateY(-8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
 
 .resultado-item{
 
@@ -240,7 +256,7 @@
 
     align-items:center;
 
-    gap:12px;
+    gap:14px;
 
     padding:12px 14px;
 
@@ -248,29 +264,39 @@
 
     transition:.25s;
 
+    border-bottom:1px solid #f3f4f6;
+
 }
 
+.resultado-item:last-child{
 
+    border-bottom:none;
+
+}
 
 .resultado-item:hover{
 
-    background:#f3f4f6;
+    background:#eff6ff;
 
 }
-
-
 
 .resultado-item img{
 
-    width:42px;
+    width:46px;
 
-    height:42px;
+    height:46px;
 
     object-fit:contain;
 
+    flex-shrink:0;
+
 }
 
+.resultado-info{
 
+    flex:1;
+
+}
 
 .resultado-info h4{
 
@@ -278,15 +304,33 @@
 
     color:#111827;
 
+    margin-bottom:3px;
+
 }
-
-
 
 .resultado-info p{
 
     font-size:12px;
 
     color:#6b7280;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+
+    text-overflow:ellipsis;
+
+}
+
+.sem-resultado{
+
+    padding:18px;
+
+    text-align:center;
+
+    color:#6b7280;
+
+    font-size:14px;
 
 }
 
@@ -314,8 +358,6 @@
     cursor:pointer;
 
 }
-
-/* Painel */
 
 .menu-mobile{
 
@@ -366,5 +408,46 @@
 .menu-mobile a:hover{
 
     color:#2563eb;
+
+}
+
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width:900px){
+
+    .search input{
+
+        width:150px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .search{
+
+        flex:1;
+
+    }
+
+    .search input{
+
+        width:100%;
+
+    }
+
+    .resultado-busca{
+
+        left:0;
+
+        right:0;
+
+        width:100%;
+
+    }
 
 }
