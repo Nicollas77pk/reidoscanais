@@ -410,39 +410,24 @@
 
 @media(max-width:480px){
 
+
     .footer-grid{
 
         grid-template-columns:1fr;
 
         text-align:center;
 
-        gap:25px;
-
     }
 
-    .footer-brand{
 
-        display:flex;
-
-        flex-direction:column;
-
-        align-items:center;
-
-    }
 
     .footer-brand p{
 
-        max-width:320px;
-
-        margin:0 auto;
+        margin:auto;
 
     }
 
-    .footer-logo{
 
-        justify-content:center;
-
-    }
 
     .footer-column{
 
@@ -450,30 +435,12 @@
 
     }
 
-    .social-link{
+
+    .footer-logo{
 
         justify-content:center;
 
-        width:100%;
-
     }
 
-    .social-link i{
-
-        font-size:22px;
-
-        width:24px;
-
-        text-align:center;
-
-    }
-
-    .footer-aviso{
-
-        margin:30px 20px;
-
-        padding:20px 10px;
-
-    }
 
 }
