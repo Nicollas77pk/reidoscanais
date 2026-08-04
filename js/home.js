@@ -24,9 +24,11 @@ async function iniciar(){
 
         carregarAgenda();
         
-        atualizarBusca(STORE.canais);
+        
 
         montarPagina(STORE.canais);
+
+        atualizarBusca(STORE.canais);
 
 
 
