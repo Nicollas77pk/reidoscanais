@@ -6,63 +6,61 @@ let canaisBusca = [];
 
 document.addEventListener("DOMContentLoaded", iniciarBusca);
 
-async function iniciarBusca(){
+async function iniciarBusca() {
 
-    const campo =
-    document.getElementById("campoBusca");
+    const campo = document.getElementById("campoBusca");
+    const resultado = document.getElementById("resultadoBusca");
 
-    const resultado =
-    document.getElementById("resultadoBusca");
+    if (!campo || !resultado) return;
 
-    if(!campo || !resultado) return;
+    try {
 
-    // Carrega apenas uma vez
+        const resposta = await api("/channels");
 
-    try{
-
-        const resposta =
-        await api("/channels");
-
-        if(resposta && resposta.success){
+        if (resposta.success) {
 
             canaisBusca = resposta.data;
 
         }
 
-    }catch(e){
+    } catch (e) {
 
         console.error(e);
 
     }
 
-    // Pesquisa enquanto digita
-
-    campo.addEventListener("input",()=>{
+    campo.addEventListener("input", () => {
 
         pesquisar(campo.value);
 
     });
 
-    // Fecha ao clicar fora
+    campo.addEventListener("focus", () => {
 
-    document.addEventListener("click",(e)=>{
+        if (campo.value.length >= 2) {
 
-        if(!e.target.closest(".search")){
-
-            resultado.style.display="none";
+            pesquisar(campo.value);
 
         }
 
     });
 
-    // ENTER
+    document.addEventListener("click", (e) => {
 
-    campo.addEventListener("keydown",(e)=>{
+        if (!e.target.closest(".search")) {
 
-        if(e.key==="Enter"){
+            resultado.style.display = "none";
 
-            window.location.href=
-            `busca.html?q=${encodeURIComponent(campo.value)}`;
+        }
+
+    });
+
+    campo.addEventListener("keydown", (e) => {
+
+        if (e.key === "Enter") {
+
+            window.location.href =
+                `busca.html?q=${encodeURIComponent(campo.value)}`;
 
         }
 
@@ -70,67 +68,59 @@ async function iniciarBusca(){
 
 }
 
-function pesquisar(texto){
+function normalizar(texto = "") {
 
-    const resultado =
-    document.getElementById("resultadoBusca");
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
 
-    if(!resultado) return;
+}
 
-    texto = texto.trim().toLowerCase();
+function pesquisar(texto) {
 
-    if(texto.length<2){
+    const resultado = document.getElementById("resultadoBusca");
 
-        resultado.style.display="none";
+    if (!resultado) return;
 
+    texto = normalizar(texto.trim());
+
+    if (texto.length < 2) {
+
+        resultado.style.display = "none";
         return;
 
     }
 
-    const encontrados =
-    canaisBusca.filter(canal=>{
+    const encontrados = canaisBusca.filter(canal => {
 
-        const nome =
-        (canal.name || "").toLowerCase();
+        const nome = normalizar(canal.name);
+        const categoria = normalizar(canal.category);
+        const programa = normalizar(canal.epg?.current?.title || "");
 
-        const categoria =
-        (canal.category || "").toLowerCase();
-
-        const programa =
-        (canal.epg?.current?.title || "").toLowerCase();
-
-        return(
-
-            nome.includes(texto)
-
-            ||
-
-            categoria.includes(texto)
-
-            ||
-
+        return (
+            nome.includes(texto) ||
+            categoria.includes(texto) ||
             programa.includes(texto)
-
         );
 
-    }).slice(0,8);
+    }).slice(0, 10);
 
     montarResultados(encontrados);
 
 }
 
-function montarResultados(lista){
+function montarResultados(lista) {
 
-    const resultado =
-    document.getElementById("resultadoBusca");
+    const resultado = document.getElementById("resultadoBusca");
 
-    resultado.innerHTML="";
+    resultado.innerHTML = "";
 
-    if(lista.length===0){
+    if (lista.length === 0) {
 
-        resultado.innerHTML=`
+        resultado.innerHTML = `
 
-<div class="resultado-item">
+<div class="resultado-item sem-resultado">
 
 Nenhum canal encontrado.
 
@@ -138,13 +128,12 @@ Nenhum canal encontrado.
 
 `;
 
-        resultado.style.display="block";
-
+        resultado.style.display = "block";
         return;
 
     }
 
-    lista.forEach(canal=>{
+    lista.forEach(canal => {
 
         resultado.innerHTML += `
 
@@ -154,15 +143,18 @@ onclick="abrirModal('${canal.id}')">
 
 <img
 src="${canal.logo_url}"
-alt="${canal.name}">
+alt="${canal.name}"
+loading="lazy">
 
 <div class="resultado-info">
 
-<h4>
+<h4>${canal.name}</h4>
 
-${canal.name}
+<p>
 
-</h4>
+<strong>${canal.category}</strong>
+
+</p>
 
 <p>
 
@@ -178,7 +170,6 @@ ${canal.epg?.current?.title || "Sem programação"}
 
     });
 
-    resultado.style.display="block";
+    resultado.style.display = "block";
 
 }
-
