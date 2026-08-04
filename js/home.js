@@ -21,11 +21,10 @@ async function iniciar(){
 
         STORE.canais = resposta.data;
 
-        
-
 
         carregarAgenda();
-
+        
+        atualizarBusca(STORE.canais);
 
         montarPagina(STORE.canais);
 
