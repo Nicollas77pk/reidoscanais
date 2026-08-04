@@ -21,7 +21,7 @@ async function iniciar(){
 
         STORE.canais = resposta.data;
 
-        atualizarBusca(STORE.canais);
+        
 
 
         carregarAgenda();
