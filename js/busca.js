@@ -59,36 +59,36 @@ document.getElementById("btnBusca");
 
     });
 
-    campo.addEventListener("keydown", (e) => {
+function executarBusca(){
 
-        if (e.key === "Enter") {
+    const texto = campo.value.trim();
 
-            window.location.href =
-                `busca.html?q=${encodeURIComponent(campo.value)}`;
+    if(texto.length < 2){
 
-        }
+        campo.focus();
 
-    });
+        return;
 
-}
+    }
 
-
-
-if(btnBusca){
-
-    btnBusca.addEventListener("click",()=>{
-
-        const texto =
-        campo.value.trim();
-
-        if(!texto) return;
-
-        window.location.href =
+    window.location.href =
         `busca.html?q=${encodeURIComponent(texto)}`;
 
-    });
-
 }
+
+campo.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Enter"){
+
+        executarBusca();
+
+    }
+
+});
+
+btnBusca.addEventListener("click",executarBusca);
+
+
 
 
 
