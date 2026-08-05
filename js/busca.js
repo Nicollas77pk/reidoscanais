@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", iniciarBusca);
 async function iniciarBusca() {
 
     const campo = document.getElementById("campoBusca");
+    const btnBusca = document.getElementById("btnBusca");
     const resultado = document.getElementById("resultadoBusca");
 
     if (!campo || !resultado) return;
@@ -57,14 +58,36 @@ async function iniciarBusca() {
 
     campo.addEventListener("keydown", (e) => {
 
-        if (e.key === "Enter") {
+    if (e.key === "Enter") {
 
-            window.location.href =
-                `busca.html?q=${encodeURIComponent(campo.value)}`;
+        window.location.href =
+            `busca.html?q=${encodeURIComponent(campo.value)}`;
+
+    }
+
+});
+
+// BOTÃO DA LUPA
+
+if (btnBusca) {
+
+    btnBusca.addEventListener("click", () => {
+
+        const texto = campo.value.trim();
+
+        if (texto.length < 2) {
+
+            campo.focus();
+            return;
 
         }
 
+        window.location.href =
+            `busca.html?q=${encodeURIComponent(texto)}`;
+
     });
+
+}
 
 }
 
