@@ -59,34 +59,16 @@ document.getElementById("btnBusca");
 
     });
 
-function executarBusca(){
+campo.addEventListener("keydown", (e) => {
 
-    const texto = campo.value.trim();
+    if (e.key === "Enter") {
 
-    if(texto.length < 2){
-
-        campo.focus();
-
-        return;
-
-    }
-
-    window.location.href =
-        `busca.html?q=${encodeURIComponent(texto)}`;
-
-}
-
-campo.addEventListener("keydown",(e)=>{
-
-    if(e.key==="Enter"){
-
-        executarBusca();
+        window.location.href =
+            `busca.html?q=${encodeURIComponent(campo.value)}`;
 
     }
 
 });
-
-btnBusca.addEventListener("click",executarBusca);
 
 
 
