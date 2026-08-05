@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", iniciarBusca);
 async function iniciarBusca() {
 
     const campo = document.getElementById("campoBusca");
+
+    const btnBusca =
+document.getElementById("btnBusca");
+    
     const resultado = document.getElementById("resultadoBusca");
 
     if (!campo || !resultado) return;
@@ -68,8 +72,7 @@ async function iniciarBusca() {
 
 }
 
-const btnBusca =
-document.getElementById("btnBusca");
+
 
 if(btnBusca){
 
