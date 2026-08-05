@@ -68,6 +68,27 @@ async function iniciarBusca() {
 
 }
 
+const btnBusca =
+document.getElementById("btnBusca");
+
+if(btnBusca){
+
+    btnBusca.addEventListener("click",()=>{
+
+        const texto =
+        campo.value.trim();
+
+        if(!texto) return;
+
+        window.location.href =
+        `busca.html?q=${encodeURIComponent(texto)}`;
+
+    });
+
+}
+
+
+
 function normalizar(texto = "") {
 
     return texto
