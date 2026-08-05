@@ -58,6 +58,7 @@ document.getElementById("btnBusca");
         }
 
     });
+    
 
 campo.addEventListener("keydown", (e) => {
 
