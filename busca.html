@@ -1,1 +1,203 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buscar canais | Rei Dos Canais</title>
+
+<meta
+name="description"
+content="Pesquise canais de TV ao vivo no Rei Dos Canais.">
+
+<link rel="icon" href="assets/favicon.png">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/categoria-page.css">
+<link rel="stylesheet" href="css/modal.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+<a href="/reidoscanais/" class="logo">
+
+<div class="logo-icon">
+👑
+</div>
+
+<div class="logo-text">
+
+<span>Rei</span>
+
+<strong>Dos Canais</strong>
+
+</div>
+
+</a>
+
+<div class="search">
+
+<input
+id="campoBusca"
+placeholder="Pesquisar canais...">
+
+<button id="btnBusca">
+🔍
+</button>
+
+<div
+id="resultadoBusca"
+class="resultado-busca">
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<main>
+
+<section class="categoria-page">
+
+<div class="container">
+
+<div class="breadcrumb">
+
+<a href="/reidoscanais/">
+
+Início
+
+</a>
+
+<span>›</span>
+
+<span>
+
+Busca
+
+</span>
+
+</div>
+
+<div class="categoria-header">
+
+<h1 id="tituloBusca">
+
+Resultados
+
+</h1>
+
+<p
+id="descricaoBusca"
+class="categoria-descricao">
+
+Pesquisando...
+
+</p>
+
+</div>
+
+<div
+id="listaResultados"
+class="categoria-grid">
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+<div class="footer-bottom">
+
+<div class="container">
+
+<p>
+
+© 2026 Rei Dos Canais
+
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+<div id="playerModal" class="modal">
+
+<button id="fecharModal" class="fechar">
+
+✕
+
+</button>
+
+<div class="modal-content">
+
+<div class="player">
+
+<iframe
+id="playerFrame"
+allowfullscreen
+frameborder="0">
+</iframe>
+
+</div>
+
+<div class="modal-info">
+
+<img id="modalLogo">
+
+<div>
+
+<h2 id="modalTitulo"></h2>
+
+<span id="modalCategoria"></span>
+
+</div>
+
+</div>
+
+<div class="programacao">
+
+<h3>🔴 Agora</h3>
+
+<p id="programaAtual"></p>
+
+<h3>Depois</h3>
+
+<p id="proximoPrograma"></p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/store.js"></script>
+
+<script src="js/modal.js"></script>
+<script src="js/busca.js"></script>
+<script src="js/busca-page.js"></script>
+
+</body>
+
+</html>
+```
