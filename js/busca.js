@@ -9,10 +9,6 @@ document.addEventListener("DOMContentLoaded", iniciarBusca);
 async function iniciarBusca() {
 
     const campo = document.getElementById("campoBusca");
-
-    const btnBusca =
-document.getElementById("btnBusca");
-    
     const resultado = document.getElementById("resultadoBusca");
 
     if (!campo || !resultado) return;
@@ -58,22 +54,19 @@ document.getElementById("btnBusca");
         }
 
     });
-    
 
-campo.addEventListener("keydown", (e) => {
+    campo.addEventListener("keydown", (e) => {
 
-    if (e.key === "Enter") {
+        if (e.key === "Enter") {
 
-        window.location.href =
-            `busca.html?q=${encodeURIComponent(campo.value)}`;
+            window.location.href =
+                `busca.html?q=${encodeURIComponent(campo.value)}`;
 
-    }
+        }
 
-});
+    });
 
-
-
-
+}
 
 function normalizar(texto = "") {
 
