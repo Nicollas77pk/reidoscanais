@@ -36,45 +36,64 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <div class="container">
 
-<a href="/reidoscanais/" class="logo">
+        <button id="menuBtn" class="menu-btn">
+            ☰
+        </button>
 
-<div class="logo-icon">
-👑
-</div>
 
-<div class="logo-text">
+        <a href="/reidoscanais/" class="logo">
 
-<span>Rei</span>
+            <div class="logo-icon">
+                👑
+            </div>
 
-<strong>Dos Canais</strong>
+            <div class="logo-text">
 
-</div>
+                <span>Rei</span>
 
-</a>
+                <strong>Dos Canais</strong>
+
+            </div>
+
+        </a>
+
+
+        <nav class="menu">
+
+            <a href="/reidoscanais/">
+                Início
+            </a>
+
+            <a href="#">
+                Agenda
+            </a>
+
+            <a href="#canais">
+                Canais
+            </a>
+
+            <a href="/reidoscanais/categoria.html?categoria=Esportes">
+                Esportes
+            </a>
+
+        </nav>
+
+        
 
 <div class="search">
 
-<input
-id="campoBusca"
-placeholder="Pesquisar canais...">
+    <input id="campoBusca" type="text" autocomplete="off" placeholder="Pesquisar canais...">
 
-<button
-type="button"
-id="btnBusca">
+    <button type="button" id="btnBusca">
 
 🔍
 
 </button>
 
-<div
-id="resultadoBusca"
-class="resultado-busca">
-</div>
+    <div id="resultadoBusca" class="resultado-busca"></div>
 
 </div>
-
-</div>
-
+        </div>
 </header>
 
 <main>
