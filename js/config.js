@@ -2,7 +2,7 @@ const CONFIG = {
 
     SITE_NAME: "Rei Dos Canais",
 
-    API_URL: "https://reidoscanais.im/",
+    API_URL: "https://reidoscanais.im",
 
     VERSION: "1.0.0",
 
